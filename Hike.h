@@ -9,18 +9,24 @@
     Project: Hiking in the US
 */
 // blank line
+
 #include <iostream>
 #include <string>
 #include "Hike.cpp"
+#include <iostream>
 using namespace std;
 
 
 class Hike {
 public:
-	string hikeLocationWOO;
-	string hikeName;
-	int durationHike;
+    Hike()
+
 	char hikeDifficulty;
 private:
+    string hikeLocation;
+    string hikeName;
+    int durationHike;
 
 };
+
+friend ostream &operator << (ostream &out, Hike &h);

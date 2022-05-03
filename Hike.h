@@ -9,7 +9,8 @@
     Project: Hiking in the US
 */
 // blank line
-
+#ifndef HIKE_H
+#define HIKE_H
 #include <iostream>
 #include <string>
 #include "Hike.cpp"
@@ -19,14 +20,23 @@ using namespace std;
 
 class Hike {
 public:
-    Hike()
-
+    Hike();
+        Hike(string newHikeLocation, string newHikeName, 
+            int newDurationHike, char newHikeDifficulty);
 	char hikeDifficulty;
+    string getLocation();
+    int getDuration();
+    char getDifficulty();
+    string getHikeName();
+
 private:
+    friend ostream& operator << (ostream& out, Hike& h);
     string hikeLocation;
     string hikeName;
     int durationHike;
 
 };
 
-friend ostream &operator << (ostream &out, Hike &h);
+
+
+#endif

@@ -15,7 +15,29 @@
 #include "Hike.h"
 #include <iostream>
 using namespace std;
-friend ostream& operator << (ostream& out, Hike& h) {
 
+ostream& operator << (ostream& out, Hike& h) {
+
+
+}
+
+string getLocation() {
+
+}
+
+
+
+int getDuration() {
+
+}
+
+
+
+char getDifficulty() {
+
+}
+
+
+string getHikeName() {
 
 }

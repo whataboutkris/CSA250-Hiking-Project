@@ -17,7 +17,7 @@ using namespace std;
 
 class Hike {
 public:
-	string hikeLocation;
+	string hikeLocationWOO;
 	string hikeName;
 	int durationHike;
 	char hikeDifficulty;

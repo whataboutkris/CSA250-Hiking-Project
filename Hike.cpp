@@ -16,28 +16,34 @@
 #include <iostream>
 using namespace std;
 
+    Hike::Hike(string& const newHikeLocation, string& const newHikeName,
+    int newDurationHike, char newHikeDifficulty) {
+    hikeLocation = newHikeLocation;
+
+}
+
 ostream& operator << (ostream& out, Hike& h) {
 
 
 }
 
-string getLocation() {
-
+string Hike::getLocation() const {
+    return hikeLocation;
 }
 
 
 
-int getDuration() {
-
+int Hike::getDuration() const {
+    return hikeDuration;
 }
 
 
 
-char getDifficulty() {
-
+char Hike::getDifficulty() const {
+    return hikeDifficulty;
 }
 
 
-string getHikeName() {
-
+string Hike::getHikeName() const {
+    return hikeName;
 }

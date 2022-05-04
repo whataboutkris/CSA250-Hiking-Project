@@ -13,28 +13,26 @@
 #define HIKE_H
 #include <iostream>
 #include <string>
-#include "Hike.cpp"
-#include <iostream>
-using namespace std;
+
+
 
 
 class Hike {
+    friend ostream& operator << (ostream& out, Hike& h);
 public:
-    Hike();
-        Hike(string newHikeLocation, string newHikeName, 
+    Hike() : hikeDifficulty('e'), hikeDuration(0) {}
+        Hike(std::string& const newHikeLocation, std::string& const newHikeName, 
             int newDurationHike, char newHikeDifficulty);
-	char hikeDifficulty;
-    string getLocation();
-    int getDuration();
-    char getDifficulty();
-    string getHikeName();
+    std::string getLocation () const();
+    int getDuration() const;
+    char getDifficulty const();
+    std::string getHikeName const();
 
 private:
-    friend ostream& operator << (ostream& out, Hike& h);
-    string hikeLocation;
-    string hikeName;
-    int durationHike;
-
+    char hikeDifficulty;
+    std::string hikeLocation;
+    std::string hikeName;
+    int hikeDuration;
 };
 
 

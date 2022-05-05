@@ -18,15 +18,15 @@
 
 
 class Hike {
-    friend ostream& operator << (ostream& out, Hike& h);
+    friend std::ostream& operator<<(std::ostream& out, const Hike& hike);
 public:
     Hike() : hikeDifficulty('e'), hikeDuration(0) {}
         Hike(std::string& const newHikeLocation, std::string& const newHikeName, 
             int newDurationHike, char newHikeDifficulty);
-    std::string getLocation () const();
+    std::string getLocation () const;
     int getDuration() const;
-    char getDifficulty const();
-    std::string getHikeName const();
+    char getDifficulty() const;
+    std::string getHikeName() const;
 
 private:
     char hikeDifficulty;

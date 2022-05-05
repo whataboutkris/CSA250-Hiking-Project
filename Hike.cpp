@@ -22,9 +22,11 @@ using namespace std;
 
 }
 
-ostream& operator << (ostream& out, Hike& h) {
-
-
+    ostream& operator<<(ostream& out, const Hike& hike) {
+    out << hike.hikeName << " (" << hike.hikeLocation << ")" << endl;
+    out << "Difficulty: " << hike.hikeDifficulty << endl;
+    out << "Duration: " << hike.hikeDuration << " day(s)" << endl;
+    return out;
 }
 
 string Hike::getLocation() const {

@@ -20,6 +20,10 @@
 class HikeList
 {
 public:
+    void addHike1(const Hike&, double price);
+    void addHike2(std::string hikeLocation, std::string hikeName,
+        int hikeDuration, char hikeDifficulty, double price);
+    double getPrice(std::string hikeName);
 
 private:
     std::multimap<const Hike&, double> m;

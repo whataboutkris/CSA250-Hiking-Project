@@ -12,21 +12,25 @@
 #ifndef HIKE_LIST_H
 #define HIKE_LIST_H
 
-#include <iostream>
-#include <string>
 #include <map>
 #include "Hike.h"
 
 class HikeList
 {
 public:
-    void addHike1(const Hike&, double price);
+    void addHike1(const Hike&, double hikePrice);
     void addHike2(std::string hikeLocation, std::string hikeName,
-        int hikeDuration, char hikeDifficulty, double price);
+        int hikeDuration, char hikeDifficulty, double hikePrice);
     double getPrice(std::string hikeName);
+    void printAllLocations();
+    void printByLocation(std::string hikeLocation);
+    void printByDuration();
+    void printByDifficulty();
+    void printByPrice();
+    void printByHikeName(std::string hikeName);
 
 private:
-    std::multimap<const Hike&, double> m;
+    std::multimap<const Hike&, double> aMap;
 };
 
 #endif

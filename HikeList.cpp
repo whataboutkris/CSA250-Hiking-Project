@@ -1,9 +1,9 @@
 /*
     Team name
-    // blank line
+
     Lastname, Firstname // member 1
     Lastname, Firstname // member 2 and so on, if any
-    // blank line
+
     Spring 2022
     CS A250 - C++ 2
     Project: Hiking in the US
@@ -14,15 +14,16 @@
 #include "HikeList.h"
 using namespace std;
 
-void addHike1(const Hike&, double hikePrice)
+void HikeList::addHike1(const Hike& what, double hikePrice)
 {
-
+    for (auto const& idk: aMap)
+        aMap.insert(pair<const Hike&, double>(what, hikePrice));
 }
 
-void addHike2(string hikeLocation, string hikeName,
+void HikeList::addHike2(string hikeLocation, string hikeName,
     int hikeDuration, char hikeDifficulty, double price)
 {
-
+    
 }
 
 double getPrice(string hikeName)

@@ -16,47 +16,48 @@ using namespace std;
 
 void HikeList::addHike1(const Hike& what, double hikePrice)
 {
-    for (auto const& idk: aMap)
+    for (auto const& idk : aMap)
         aMap.insert(pair<const Hike&, double>(what, hikePrice));
 }
 
 void HikeList::addHike2(string hikeLocation, string hikeName,
-    int hikeDuration, char hikeDifficulty, double price)
+    int hikeDuration, char hikeDifficulty, double hikePrice)
 {
-    
+    Hike what;
+    aMap.insert(pair<const Hike&, double>(what, hikePrice));
 }
 
-double getPrice(string hikeName)
+double HikeList::getPrice(string hikeName)
 {
-
+    //find_if(aMap.begin(), aMap.end(), hikeName);
 }
 
-void printAllLocations()
-{
-
-}
-
-void printByLocation(string hikeLocation)
+void HikeList::printAllLocations()
 {
 
 }
 
-void printByDuration()
+void HikeList::printByLocation(string hikeLocation)
 {
 
 }
 
-void printByDifficulty()
+void HikeList::printByDuration()
 {
 
 }
 
-void printByPrice()
+void HikeList::printByDifficulty()
 {
 
 }
 
-void printByHikeName(string hikeName)
+void HikeList::printByPrice()
+{
+
+}
+
+void HikeList::printByHikeName(string hikeName)
 {
 
 }

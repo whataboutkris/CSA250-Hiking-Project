@@ -16,17 +16,17 @@
 #include "HikeList.h"
 using namespace std;
 
-void HikeList::addHike1(const Hike& what, double hikePrice)
+void HikeList::addHike1(const Hike& what    , double hikePrice)
 {
     for (auto const& idk : aMap)
-        aMap.insert(pair<const Hike&, double>(what, hikePrice));
+        aMap.insert(pair<const Hike&, double>(what , hikePrice));
 }
 
-void HikeList::addHike2(string hikeLocation, string hikeName,
+void HikeList::addHike2(string  hikeLocation, string hikeName,
     int hikeDuration, char hikeDifficulty, double hikePrice)
 {
-    Hike what;
-    aMap.insert(pair<const Hike&, double>(what, hikePrice));
+    Hike insertHike;
+    aMap.insert(pair<const Hike&, double>(insertHike, hikePrice));
 }
 
 double HikeList::getPrice(string hikeName)
@@ -36,11 +36,15 @@ double HikeList::getPrice(string hikeName)
 
 void HikeList::printAllLocations()
 {
-
+    //for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  //WIP - need to test+ incorporate upperbound
+    //{
+    //    cout << it->first<< endl;
+    //}
 }
 
-void HikeList::printByLocation(string hikeLocation)
-{
+void HikeList::printByLocation(string hikeLocation) {
+    //find_if(aMap.begin(), aMap.end(), [&hikeLocation] () {
+    //    cout << ???;});
 
 }
 

@@ -142,14 +142,22 @@
     <ClCompile Include="Hike.cpp" />
     <ClCompile Include="HikeList.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Member.cpp" />
-    <ClCompile Include="MemberList.cpp" />
+    <ClCompile Include="Member.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="MemberList.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hike.h" />
     <ClInclude Include="HikeList.h" />
-    <ClInclude Include="Member.h" />
-    <ClInclude Include="MemberList.h" />
+    <ClInclude Include="Member.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="MemberList.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

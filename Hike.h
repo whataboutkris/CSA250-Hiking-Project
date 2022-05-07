@@ -1,14 +1,16 @@
 /*
     Team name
-    // blank line
-    Lastname, Firstname // member 1
-    Lastname, Firstname // member 2 and so on, if any
-    // blank line
+
+    Losenara, Kristian
+    Kelley, Bobby
+    Lu, Vince
+    Chen, Amanda
+
     Spring 2022
     CS A250 - C++ 2
     Project: Hiking in the US
 */
-// blank line
+    
 #ifndef HIKE_H
 #define HIKE_H
 #include <iostream>

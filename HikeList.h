@@ -1,8 +1,10 @@
 /*
     Team name
 
-    Lastname, Firstname // member 1
-    Lastname, Firstname // member 2 and so on, if any
+    Losenara, Kristian
+    Kelley, Bobby
+    Lu, Vince
+    Chen, Amanda
 
     Spring 2022
     CS A250 - C++ 2

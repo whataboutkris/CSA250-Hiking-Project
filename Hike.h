@@ -21,7 +21,7 @@ class Hike {
     friend std::ostream& operator<<(std::ostream& out, const Hike& hike);
 public:
     Hike() : hikeDifficulty('e'), hikeDuration(0) {}
-        Hike(std::string& const newHikeLocation, std::string& const newHikeName, 
+        Hike(const std::string& newHikeLocation, const std::string& newHikeName,
             int newDurationHike, char newHikeDifficulty);
     std::string getLocation () const;
     int getDuration() const;

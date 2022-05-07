@@ -13,13 +13,14 @@
 #include <iostream>
 #include <string>
 #include "Hike.h"
-#include <iostream>
 using namespace std;
 
-    Hike::Hike(string& const newHikeLocation, string& const newHikeName,
+    Hike::Hike(const string& newHikeLocation, const string& newHikeName,
     int newDurationHike, char newHikeDifficulty) {
     hikeLocation = newHikeLocation;
-
+    hikeName = newHikeName;
+    hikeDuration = newDurationHike;
+    hikeDifficulty = newHikeDifficulty;
 }
 
     ostream& operator<<(ostream& out, const Hike& hike) {

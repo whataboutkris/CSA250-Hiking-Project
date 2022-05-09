@@ -32,7 +32,8 @@ void HikeList::addHike2(string  hikeLocation, string hikeName,
 
 double HikeList::getPrice(string hikeName)
 {
-    //find_if(aMap.begin(), aMap.end(), hikeName);
+    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](Hike& h) {return h.getHikeName() == hikeName;});
+    return priceGet->second;
 }
 
 void HikeList::printAllLocations()

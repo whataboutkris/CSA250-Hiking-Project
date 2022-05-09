@@ -13,14 +13,15 @@
 
 #include <iostream>
 #include <map>
+#include <algorithm>
 #include "HikeList.h"
 #include "Hike.h"
 using namespace std;
 
-void HikeList::addHike1(const Hike& what    , double hikePrice)
+void HikeList::addHike1(const Hike& hike, double hikePrice)
 {
-    for (auto const& idk : aMap)
-        aMap.insert(pair<const Hike&, double>(what , hikePrice));
+    for (auto const& i : aMap)
+        aMap.insert(pair<const Hike&, double>(hike, hikePrice));
 }
 
 void HikeList::addHike2(string  hikeLocation, string hikeName,
@@ -52,12 +53,13 @@ void HikeList::printByLocation(string hikeLocation) {
 
 void HikeList::printByDuration()
 {
-
+    
 }
 
-void HikeList::printByDifficulty()
+void HikeList::printByDifficulty(char hikeDifficulty)
 {
-
+    //for (auto const& i : aMap)       //WIP - print out hike name and loc
+    //    cout << "(" << hikeDifficulty << ") " << ? << ", " << ? << '\n';
 }
 
 void HikeList::printByPrice()

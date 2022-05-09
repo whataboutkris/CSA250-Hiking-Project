@@ -43,6 +43,7 @@ void HikeList::printAllLocations()
     for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  //how to incorporate upper_bound()?
     {
         cout << it->first.getLocation() << endl;
+        it = aMap.upper_bound(it->first);
     }
 }
 

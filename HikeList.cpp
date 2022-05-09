@@ -71,3 +71,8 @@ void HikeList::printByHikeName(string hikeName)
 {
 
 }
+
+void HikeList::clearList()
+{
+
+}

@@ -30,6 +30,7 @@ public:
     void printByDifficulty(char hikeDifficulty);
     void printByPrice();
     void printByHikeName(std::string hikeName);
+    void clearList();
 
 private:
     std::multimap<const Hike&, double> aMap;

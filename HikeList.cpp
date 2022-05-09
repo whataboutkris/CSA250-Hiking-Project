@@ -14,6 +14,7 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
+#include <iomanip>
 #include "HikeList.h"
 #include "Hike.h"
 using namespace std;
@@ -58,13 +59,22 @@ void HikeList::printByDuration()
 
 void HikeList::printByDifficulty(char hikeDifficulty)
 {
-    //for (auto const& i : aMap)       //WIP - print out hike name and loc
-    //    cout << "(" << hikeDifficulty << ") " << ? << ", " << ? << '\n';
+    //for (auto& i : aMap)                                       //WIP - print out hike name and loc
+    //    cout << "(" << hikeDifficulty << ") " << ? << ", " << 
+    //        ? << endl;
 }
 
 void HikeList::printByPrice()
 {
+    //multimap<double, pair<string, string>> mymultimap;              //WIP - price, name, loc?
 
+    //mymultimap.emplace(price, make_pair(hike name, hike location);
+
+    //cout << fixed << showpoint << setprecision(2);
+
+    //for (auto& i : mymultimap)
+    //    cout << "$ " << price << " - " << hike location << " (" << 
+    //        hike name << ")" << endl;
 }
 
 void HikeList::printByHikeName(string hikeName)

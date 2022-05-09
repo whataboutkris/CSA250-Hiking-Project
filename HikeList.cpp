@@ -40,21 +40,22 @@ double HikeList::getPrice(string hikeName)
 
 void HikeList::printAllLocations()
 {
-    //for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  //WIP - need to test+ incorporate upperbound
-    //{
-    //    cout << it->first<< endl;
-    //}
+    for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  //how to incorporate upper_bound()?
+    {
+        cout << it->first.getLocation() << endl;
+    }
 }
 
 void HikeList::printByLocation(string hikeLocation) {
-    //find_if(aMap.begin(), aMap.end(), [&hikeLocation] () {
-    //    cout << ???;});
+    auto byLocation = find_if(aMap.begin(), aMap.end(), [&hikeLocation] (Hike&h) {return h.getLocation() == hikeLocation;});
+    cout << byLocation->first.getHikeName(); //how to find duplicate locations?
 
 }
 
 void HikeList::printByDuration()
 {
-    
+    multimap<double, pair<int, string>> multiMapDuration; //(duration, name)
+    //aMap.insert();    
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)

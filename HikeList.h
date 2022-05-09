@@ -22,7 +22,7 @@ class HikeList
 public:
     void addHike1(const Hike&, double hikePrice);
     void addHike2(std::string hikeLocation, std::string hikeName,
-    int hikeDuration, char hikeDifficulty, double hikePrice);
+     int hikeDuration, char hikeDifficulty, double hikePrice);
     double getPrice(std::string hikeName);
     void printAllLocations();
     void printByLocation(std::string hikeLocation);

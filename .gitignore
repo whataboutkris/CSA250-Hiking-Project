@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Test/Testing Member Stuff/Testing Member Stuff.vcxproj.filters
+/Test/Testing Member Stuff/Testing Member Stuff.vcxproj
+/Test/Testing Member Stuff/Testing Member Stuff.sln
+/Test/Testing Member Stuff/MemberList.h
+/Test/Testing Member Stuff/MemberList.cpp
+/Test/Testing Member Stuff/Member.h
+/Test/Testing Member Stuff/Member.cpp
+/Test/Testing Member Stuff/Main.cpp

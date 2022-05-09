@@ -17,12 +17,12 @@ void MemberList::addMember(const string& newFirstName, const string& newLastName
 
     if (memberList->empty())
     {
-        newMember.id = DEFAULT_ID;
+        newMember.setID(DEFAULT_ID);
     }
     else
     {
         int idOffset = static_cast<int>(memberList->size());
-        newMember.id = DEFAULT_ID + idOffset;
+        newMember.setID(DEFAULT_ID + idOffset);
     }
     memberList->insert(newMember);
 }
@@ -30,37 +30,37 @@ void MemberList::addMember(const string& newFirstName, const string& newLastName
 void MemberList::addMember(const string& newFirstName, const string& newLastName, int newPoints)
 {
     Member newMember = Member(newFirstName, newLastName);
-    newMember.points = newPoints;
+    newMember.addPoints(newPoints);
 
     if (memberList->empty())
     {
-        newMember.id = DEFAULT_ID;
+        newMember.setID(DEFAULT_ID);
     }
     else
     {
         int idOffset = static_cast<int>(memberList->size());
-        newMember.id = DEFAULT_ID + idOffset;
+        newMember.setID(DEFAULT_ID + idOffset);
     }
-    
+
     memberList->insert(newMember);
 }
 
 int MemberList::getLastID() const
 {
     auto lastMember = memberList->rbegin();
-    return lastMember.id;
+    return lastMember->getID();
 }
 
 int MemberList::getPoints(int id) const
 {
-    auto foundMember = find_if(memberList->begin(), memberList->end(), [](Member& a) {return a->id == id;});
-    return foundMember->points;
+    auto foundMember = find_if(memberList->begin(), memberList->end(), [id](const Member& a) {return a.getID() == id; });
+    return foundMember->getPoints();
 }
 
 void MemberList::printMember(int id, const string& lName) const
 {
-    auto foundMember = find_if(memberList->begin(), memberList->end(), [](Member& a) {return a->id == id;});
-    if (foundMember->id == foundMember->lName)
+    auto foundMember = find_if(memberList->begin(), memberList->end(), [id](const Member& a) {return a.getID() == id; });
+    if (foundMember->getLName() == lName)
     {
         foundMember->Member::printMember();
     }
@@ -76,3 +76,4 @@ MemberList::~MemberList()
     delete memberList;
     memberList = nullptr;
 }
+

@@ -42,3 +42,8 @@ void Member::printMember() const
 		<< "Points available: " << points << "\n"
 		<< "Membership # " << id << endl;
 }
+
+bool Member::operator<(const Member& paramObj) const
+{
+	return id < paramObj.id;
+}

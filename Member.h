@@ -21,6 +21,8 @@ public:
 
 	void printMember() const;
 
+	bool operator<(const Member&) const;
+
 	~Member() {}
 
 private:

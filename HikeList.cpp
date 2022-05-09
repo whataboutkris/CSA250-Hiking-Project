@@ -14,6 +14,7 @@
 #include <iostream>
 #include <map>
 #include "HikeList.h"
+#include "Hike.h"
 using namespace std;
 
 void HikeList::addHike1(const Hike& what    , double hikePrice)

@@ -6,7 +6,6 @@ using namespace std;
 void Reservations::clearList()
 {
     Node* temp = first;
-
     while (first != nullptr)
     {
         first = first->getNext();
@@ -16,6 +15,7 @@ void Reservations::clearList()
     last = nullptr;
     count = 0;
 }
+
 Reservations::~Reservations()
 {
     Node *current = first;

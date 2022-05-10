@@ -27,6 +27,7 @@ public:
     void printAllLocations();
     void printByLocation(std::string hikeLocation);
     void printByDuration();
+    void printByDuration(int days);
     void printByDifficulty(char hikeDifficulty);
     void printByPrice();
     void printByHikeName(std::string hikeName);

@@ -19,11 +19,11 @@ const int DEFAULT_RESERVATION = 50001;
 class Node
 {
 public:
-	Node() : reservationNumber(RESERVATION_NUMBER), memberID(0), prev(nullptr), next(nullptr) {}
+	Node() : reservationNumber(DEFAULT_RESERVATION), memID(0), prev(nullptr), next(nullptr) {}
 	Node (int theReNumb, int theMemID,std::string theHikeName, Node *prevLink, Node *nextLink)
 	: reservationNumber(theReNumb), memID(theMemID), hikeName(theHikeName), prev (prevLink), next (nextLink) {}
 	int getreservationNumber( ) const { return reservationNumber; }
-	int getMembID( ) const { return membID; }
+	int getMembID( ) const { return memID; }
 	std::string getHikeName ( ) const {return hikeName; }
 	Node *getPrev ( ) const { return prev; }
 	Node *getNext ( ) const { return next; }
@@ -36,32 +36,12 @@ public:
 
 private:
 	int reservationNumber;
-	int memberID;
+	int memID;
 	std::string hikeName;
 	Node* prev;
 	Node* next;
 };
 
-
-
-
-class Reservations {
-
-public:
-
-
-private:
-
-
-};
-
-private:
-	int reservationNumber;
-	int memberID;
-	std::string hikeName;
-	Node* next;
-	Node* prev;
-};
 
 class Reservations
 {

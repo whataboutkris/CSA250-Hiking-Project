@@ -12,13 +12,33 @@
 */
 
 #include "Interface.h"
+#include "HikeList.h"
+#include "MemberList.h"
+#include "Reservations.h"
 
-void displayMenu()
+using namespace std;
+
+void Interface::displayMenu()
 {
+    cout << "***************************************************\n"
+         << "                HIKING IN THE US                   \n"
+         << "***************************************************\n"
+         << endl;
 
+    cout << "         1. Browse by location\n"
+         << "         2. Browse by duration\n"
+         << "         3. Browse by difficulty\n"
+         << "         4. Browse by price\n"
+         << "         5. Make a reservation\n"
+         << "         6. View reservation\n"
+         << "         7. Cancel reservation\n"
+         << "         8. Exit\n" << endl;
 }
 
-//void processReservation(HikeList&, MemberList&, Reservations&)
+void Interface::processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
+{
+    cout << "Please make a selection: ";
+}
 //void chooseByLocation(HikeList&, MemberList&, Reservations&)
 //void chooseByDuration(HikeList&, MemberList&, Reservations&)
 //void chooseByDifficulty(HikeList&, MemberList&, Reservations&)
@@ -29,5 +49,3 @@ void displayMenu()
 //void viewReservation(HikeList&, MemberList&, Reservations&)
 //void cancelReservation(HikeList&, MemberList&, Reservations&)
 //void askToReserve(HikeList&, MemberList&, Reservations&)
-
-using namespace std;

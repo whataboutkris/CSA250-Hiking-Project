@@ -22,7 +22,32 @@ using namespace std;
 
 const string MEMBERS_FILE = "members_database.txt";
 
-void createMemberList()
+void createMemberList(ifstream& infile, MemberList& memberList)
 {
+    string firstName,
+           lastName;
+    int points;
 
+    while (!infile.eof())
+    {
+        infile >> firstName >> lastName >> points;
+        memberList.addMember(firstName, lastName, points);
+    }
+}
+
+void getMemberData(MemberList& memberList)
+{
+    ifstream infile;
+
+    infile.open(MEMBERS_FILE);
+
+    if (!infile)
+    {
+        cerr << MEMBERS_FILE << " does not exist." << endl;
+        exit(1);
+    }
+
+    createMemberList(infile, memberList);
+
+    infile.close();
 }

@@ -29,13 +29,13 @@ void HikeList::addHike(const string& hikeLocation, const string& hikeName,
     int hikeDuration, char hikeDifficulty, double hikePrice)
 {
     Hike insertHike(hikeLocation, hikeName, hikeDuration, hikeDifficulty);
-    aMap.insert(pair<const Hike&, double>(insertHike, hikePrice));
+    aMap.insert(make_pair(insertHike, hikePrice));
 }
 
 double HikeList::getPrice(string hikeName)
 {
     auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});
-    return priceGet->second;
+    return priceGet->second; //This is bad? It crashes here on the overloaded operator for HikeList. 
 }
 
 void HikeList::printAllLocations()
@@ -58,7 +58,7 @@ void HikeList::printByLocation(string hikeLocation) {
         cout << "    Price: (per person): $ " << byLocation->second << endl;
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation](const pair<const Hike&, double>& h) {return h.first.getLocation() == hikeLocation; });
     }
-     //how to find duplicate locations?
+   
 }
 
 void HikeList::printByDuration()
@@ -67,8 +67,8 @@ void HikeList::printByDuration()
     auto iter = aMap.begin();
     auto iterEnd = aMap.end();
     for (iter; iter != iterEnd; ++iter)
-        myMultiMap.insert(pair<int, string>(iter->first.getDuration(), iter->first.getLocation()));   // is this correct? + sort by duration?
-    for_each(myMultiMap.begin(), myMultiMap.end(), [](const pair<int, string>& h) {cout << "(" << h.first << ") " << h.second << endl;});// WIP - Is the lambda for accessing myMultiMap correct in this case ?
+        myMultiMap.insert(pair<int, string>(iter->first.getDuration(), iter->first.getLocation()));  
+    for_each(myMultiMap.begin(), myMultiMap.end(), [](const pair<int, string>& h) {cout << "(" << h.first << ") " << h.second << endl;});
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)
@@ -91,14 +91,14 @@ void HikeList::printByPrice()
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "$ " << i.first << " - " << i.second.first << " (" <<   //not sure what to put in the spot of getPrice
+        cout << "$ " << i.first << " - " << i.second.first << " (" <<   
             i.second.second << ")\n";
 }
 
 void HikeList::printByHikeName(string hikeName)
 {
     multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(),
-        [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});        //WIP - I think I got it? -K
+        [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});       
 
     cout << fixed << showpoint << setprecision(2);
     cout << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<

@@ -12,7 +12,8 @@
 	Project: Hiking in the US
 */
 
-#include "MemberList.h"
+#include "Reservations.h"
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -20,12 +21,9 @@
 
 using namespace std;
 
-const string RESERVATION_FILE = "reservations_database.txt";
+const string RESERVATIONS_FILE = "reservations_database.txt";
 
-//void createReservationList(ifstream& infile, ) {
-//	int ID = 0;
-//	string location;
-//	while (!infile.eof()) {
-//		
-//	}
-//}
+void createReservations(ifstream& infile, Reservations& reservations);
+{
+
+}

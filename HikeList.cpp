@@ -40,7 +40,7 @@ double HikeList::getPrice(string hikeName)
 
 void HikeList::printAllLocations()
 {
-    for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  //how to incorporate upper_bound()?
+    for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  
     {
         cout << it->first.getLocation() << endl;
         it = aMap.upper_bound(it->first);
@@ -56,7 +56,7 @@ void HikeList::printByLocation(string hikeLocation) {
 void HikeList::printByDuration()
 {
     multimap<double, pair<int, string>> multiMapDuration; //(duration, name)
-    //aMap.insert();    
+    //aMap.insert(aMap->first.getDuration(), aMap->first.getHikeName());
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)

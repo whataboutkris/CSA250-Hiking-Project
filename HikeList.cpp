@@ -14,32 +14,35 @@
 #include <iostream>
 #include <map>
 #include <iomanip>
+#include <algorithm>
 #include "HikeList.h"
 #include "Hike.h"
 using namespace std;
 
-void HikeList::addHike1(const Hike& hike, double hikePrice)
+
+void HikeList::addHike(const Hike& hike, double hikePrice)
 {
-    for (auto const& i : aMap)
-        aMap.insert(pair<const Hike&, double>(hike, hikePrice));
+    aMap.insert(pair<const Hike&, double>(hike, hikePrice));
 }
 
-void HikeList::addHike2(string  hikeLocation, string hikeName,
+void HikeList::addHike(const string& hikeLocation, const string& hikeName,
     int hikeDuration, char hikeDifficulty, double hikePrice)
 {
-    Hike insertHike;
+    Hike insertHike(hikeLocation, hikeName, hikeDuration, hikeDifficulty);
     aMap.insert(pair<const Hike&, double>(insertHike, hikePrice));
 }
 
 double HikeList::getPrice(string hikeName)
 {
-    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](Hike& h) {return h.getHikeName() == hikeName;});
+    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});
     return priceGet->second;
 }
 
 void HikeList::printAllLocations()
 {
-    for (auto it = aMap.cbegin(); it != aMap.cend(); ++it)  
+    auto it = aMap.begin();
+    auto itEnd = aMap.end();
+    while (it != itEnd)
     {
         cout << it->first.getLocation() << endl;
         it = aMap.upper_bound(it->first);
@@ -47,17 +50,25 @@ void HikeList::printAllLocations()
 }
 
 void HikeList::printByLocation(string hikeLocation) {
-    auto byLocation = find_if(aMap.begin(), aMap.end(), [&hikeLocation] (Hike&h) {return h.getLocation() == hikeLocation;});
-    cout << byLocation->first.getHikeName(); //how to find duplicate locations?
-
+    auto iterEnd = aMap.end();
+    auto byLocation = find_if(aMap.begin(), iterEnd, [&hikeLocation] (const pair<const Hike&, double>& h) {return h.first.getLocation() == hikeLocation;});
+    while (byLocation != iterEnd)
+    {
+        cout << byLocation->first;
+        cout << "    Price: (per person): $ " << byLocation->second << endl;
+        byLocation = find_if(++byLocation, iterEnd, [&hikeLocation](const pair<const Hike&, double>& h) {return h.first.getLocation() == hikeLocation; });
+    }
+     //how to find duplicate locations?
 }
 
 void HikeList::printByDuration()
 {
-    multimap<double, pair<int, string>> myMultiMap; //(duration, name)
-    //for (auto& i : aMap) //does this sort it by duration? 
-        myMultiMap.insert(aMap.begin(), aMap.end());   // is this correct? + sort by duration?
-    //for_each(myMultiMap.begin(), myMultiMap.end(), [myMultiMap](Hike &h) {return h.getLocation() == myMultiMap; }); WIP - Is the lambda for accessing myMultiMap correct in this case?
+    multimap<int, string> myMultiMap; //(duration, name)
+    auto iter = aMap.begin();
+    auto iterEnd = aMap.end();
+    for (iter; iter != iterEnd; ++iter)
+        myMultiMap.insert(pair<int,string>(iter->first.getDuration(), iter->first.getLocation()));   // is this correct? + sort by duration?
+    for_each(myMultiMap.begin(), myMultiMap.end(), [](pair<int, string>&h) {cout << "(" << h.first << ") " << h.second << endl;});// WIP - Is the lambda for accessing myMultiMap correct in this case ?
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)
@@ -78,14 +89,14 @@ void HikeList::printByPrice()
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "$ " << getPrice << " - " << hike.getLocation() << " (" <<   //not sure what to put in the spot of getPrice
+        cout << "$ " << i.first << " - " << hike.getLocation() << " (" <<   //not sure what to put in the spot of getPrice
             hike.getHikeName() << ")\n";
 }
 
 void HikeList::printByHikeName(string hikeName)
 {
     multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(),
-        [&hikeName](Hike& h) {return h.getHikeName() == hikeName;});        //WIP - I think I got it? -K
+        [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});        //WIP - I think I got it? -K
 
     cout << fixed << showpoint << setprecision(2);
     cout << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<

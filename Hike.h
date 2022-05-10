@@ -29,6 +29,7 @@ public:
     int getDuration() const;
     char getDifficulty() const;
     std::string getHikeName() const;
+    bool operator<(const Hike&) const;
 
 private:
     char hikeDifficulty;

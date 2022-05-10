@@ -33,5 +33,6 @@ int main()
 	h.printAllLocations();
 	h.printByLocation("Montana");
 	h.printByDuration();
+
 	return 0;
 }

@@ -69,23 +69,23 @@ void HikeList::printByDifficulty(char hikeDifficulty)
 
 void HikeList::printByPrice()
 {
-    //Hike hike;
-    //multimap<double, pair<string, string>> mymultimap;              //WIP - price, name, loc?
+    Hike hike;
+    multimap<double, pair<string, string>> mymultimap;
 
-    //mymultimap.emplace(aMap.first(), make_pair(hike.getHikeName(), hike.getLocation()));
+    mymultimap.emplace(aMap, make_pair(hike.getHikeName(), hike.getLocation()));
 
-    //cout << fixed << showpoint << setprecision(2);
+    cout << fixed << showpoint << setprecision(2);
 
-    //for (auto& i : mymultimap)
-    //    cout << "$ " << price << " - " << hike location << " (" << 
-    //        hike name << ")\n";
+    for (auto& i : mymultimap)
+        cout << "$ " << getPrice << " - " << hike.getLocation() << " (" <<
+            hike.getHikeName() << ")\n";
 }
 
 void HikeList::printByHikeName(string hikeName)
 {
-    //multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(), [] () {return ;});        //WIP - lambda exp, name, loc, diff, duration, price?
+    multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(), [] () {return ;});        //WIP - lambda exp, name, loc, diff, duration, price?
 
-    //cout << fixed << showpoint << setprecision(2);
+    cout << fixed << showpoint << setprecision(2);
     //cout << hike name << " (" << hike location << ")\n" << 
     //    "    Difficulty: " << hike difficulty << "\n    Duration: " 
     //    << hike duration << " day(s)\n" << "    $" << hike price;

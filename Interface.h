@@ -14,7 +14,6 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
 
-class Interface {
 #include "HikeList.h"
 #include "MemberList.h"
 #include "Reservations.h"

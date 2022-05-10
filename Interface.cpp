@@ -18,7 +18,7 @@
 
 using namespace std;
 
-void displayMenu()
+void Interface::displayMenu()
 {
     cout << "***************************************************\n"
          << "                HIKING IN THE US                   \n"
@@ -35,7 +35,7 @@ void displayMenu()
          << "         8. Exit\n" << endl;
 }
 
-void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
+void Interface::processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
 {
     cout << "Please make a selection: ";
 }

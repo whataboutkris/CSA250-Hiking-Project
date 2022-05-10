@@ -1,5 +1,5 @@
 /*
-    Team name
+    Cool Kids
 
     Losenara, Kristian
     Kelley, Bobby

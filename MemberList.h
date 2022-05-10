@@ -1,14 +1,16 @@
-#pragma once
 /*
-    Team name
+    Cool Kids
 
-    Lastname, Firstname // member 1
-    Kelley, Bobby // member 2 and so on, if any
+    Losenara, Kristian
+    Kelley, Bobby
+    Lu, Vince
+    Chen, Amanda
 
     Spring 2022
     CS A250 - C++ 2
     Project: Hiking in the US
 */
+
 #ifndef MEMBERLIST_H
 #define MEMBERLIST_H
 

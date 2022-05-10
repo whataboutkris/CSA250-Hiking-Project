@@ -1,14 +1,15 @@
 /*
-    Team name
-    // blank line
-    Lastname, Firstname // member 1
-    Lastname, Firstname // member 2 and so on, if any
-    // blank line
+    Cool Kids
+
+    Losenara, Kristian
+    Kelley, Bobby
+    Lu, Vince
+    Chen, Amanda
+
     Spring 2022
     CS A250 - C++ 2
     Project: Hiking in the US
 */
-// blank line
 
 #include <iostream>
 #include <string>
@@ -34,18 +35,13 @@ string Hike::getLocation() const {
     return hikeLocation;
 }
 
-
-
 int Hike::getDuration() const {
     return hikeDuration;
 }
 
-
-
 char Hike::getDifficulty() const {
     return hikeDifficulty;
 }
-
 
 string Hike::getHikeName() const {
     return hikeName;

@@ -1,5 +1,5 @@
 /*
-    Team name
+    Cool Kids
 
     Losenara, Kristian
     Kelley, Bobby
@@ -89,7 +89,7 @@ void HikeList::printByPrice()
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "$ " << i.first << " - " << hike.getLocation() << " (" <<   //not sure what to put in the spot of getPrice
+        cout << "$ " << i.first << " - " << hike.getLocation() << " (" <<
             hike.getHikeName() << ")\n";
 }
 

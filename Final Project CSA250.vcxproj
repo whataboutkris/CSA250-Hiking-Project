@@ -152,12 +152,18 @@
   <ItemGroup>
     <ClInclude Include="Hike.h" />
     <ClInclude Include="HikeList.h" />
+    <ClInclude Include="HikeReader.h" />
     <ClInclude Include="Member.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="MemberList.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="hikes_database.txt" />
+    <Text Include="members_database.txt" />
+    <Text Include="reservations_database.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

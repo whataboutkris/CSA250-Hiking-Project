@@ -160,6 +160,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="MemberReader.h" />
+    <ClInclude Include="ReservationReader.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="hikes_database.txt" />

@@ -13,7 +13,6 @@
 
 #include <iostream>
 #include <map>
-#include <algorithm>
 #include <iomanip>
 #include "HikeList.h"
 #include "Hike.h"
@@ -56,7 +55,7 @@ void HikeList::printByLocation(string hikeLocation) {
 void HikeList::printByDuration()
 {
     multimap<double, pair<int, string>> myMultiMap; //(duration, name)
-    myMultiMap.insert(aMap.begin(), aMap.end());   // is this correct? + sort by duration?
+        myMultiMap.insert(aMap.begin(), aMap.end());   // is this correct? + sort by duration?
     //for_each(myMultiMap.begin(), myMultiMap.end(), [myMultiMap](Hike &h) {return h.getLocation() == myMultiMap; }); WIP - Is the lambda for accessing myMultiMap correct in this case?
 }
 
@@ -78,7 +77,7 @@ void HikeList::printByPrice()
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "$ " << getPrice << " - " << hike.getLocation() << " (" <<
+        cout << "$ " << getPrice << " - " << hike.getLocation() << " (" <<   //not sure what to put in the spot of getPrice
             hike.getHikeName() << ")\n";
 }
 
@@ -95,5 +94,5 @@ void HikeList::printByHikeName(string hikeName)
 
 void HikeList::clearList()
 {
-
+    aMap.clear();
 }

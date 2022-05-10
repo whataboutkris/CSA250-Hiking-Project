@@ -83,12 +83,13 @@ void HikeList::printByPrice()
 
 void HikeList::printByHikeName(string hikeName)
 {
-    multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(), [] () {return ;});        //WIP - lambda exp, name, loc, diff, duration, price?
+    multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(),
+        [&hikeName](Hike& h) {return h.getHikeName() == hikeName;});        //WIP - I think I got it? -K
 
     cout << fixed << showpoint << setprecision(2);
-    //cout << hike name << " (" << hike location << ")\n" << 
-    //    "    Difficulty: " << hike difficulty << "\n    Duration: " 
-    //    << hike duration << " day(s)\n" << "    $" << hike price;
+    cout << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<
+        "    Difficulty: " << it->first.getDifficulty() << "\n    Duration: "
+        << it->first.getDuration() << " day(s)\n" << "    $" << it->second;
 }
 
 void HikeList::clearList()

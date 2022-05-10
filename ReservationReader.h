@@ -1,4 +1,3 @@
-#pragma once
 /*
 	Cool Kids
 

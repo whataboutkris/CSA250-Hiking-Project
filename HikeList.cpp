@@ -55,8 +55,9 @@ void HikeList::printByLocation(string hikeLocation) {
 
 void HikeList::printByDuration()
 {
-    multimap<double, pair<int, string>> multiMapDuration; //(duration, name)
-    //aMap.insert(aMap->first.getDuration(), aMap->first.getHikeName());
+    multimap<double, pair<int, string>> myMultiMap; //(duration, name)
+    myMultiMap.insert(aMap.begin(), aMap.end());   // is this correct? + sort by duration?
+    //for_each(myMultiMap.begin(), myMultiMap.end(), [myMultiMap](Hike &h) {return h.getLocation() == myMultiMap; }); WIP - Is the lambda for accessing myMultiMap correct in this case?
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)

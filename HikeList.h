@@ -33,7 +33,7 @@ public:
     void clearList();
 
 private:
-    std::multimap<const Hike&, double> aMap;
+    std::multimap<Hike, double> aMap;
 };
 
 #endif

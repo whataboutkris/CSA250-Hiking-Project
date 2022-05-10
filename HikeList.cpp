@@ -22,7 +22,7 @@ using namespace std;
 
 void HikeList::addHike(const Hike& hike, double hikePrice)
 {
-    aMap.insert(pair<const Hike&, double>(hike, hikePrice));
+    aMap.insert(make_pair(hike, hikePrice));
 }
 
 void HikeList::addHike(const string& hikeLocation, const string& hikeName,
@@ -34,7 +34,7 @@ void HikeList::addHike(const string& hikeLocation, const string& hikeName,
 
 double HikeList::getPrice(string hikeName)
 {
-    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});
+    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](const auto h) {return h.first.getHikeName() == hikeName;});
     return priceGet->second; //This is bad? It crashes here on the overloaded operator for HikeList. 
 }
 
@@ -51,12 +51,12 @@ void HikeList::printAllLocations()
 
 void HikeList::printByLocation(string hikeLocation) {
     auto iterEnd = aMap.end();
-    auto byLocation = find_if(aMap.begin(), iterEnd, [&hikeLocation] (const pair<const Hike&, double>& h) {return h.first.getLocation() == hikeLocation;});
+    auto byLocation = find_if(aMap.begin(), iterEnd, [&hikeLocation] (const auto& h) {return h.first.getLocation() == hikeLocation;});
     while (byLocation != iterEnd)
     {
         cout << byLocation->first;
         cout << "    Price: (per person): $ " << byLocation->second << endl;
-        byLocation = find_if(++byLocation, iterEnd, [&hikeLocation](const pair<const Hike&, double>& h) {return h.first.getLocation() == hikeLocation; });
+        byLocation = find_if(++byLocation, iterEnd, [&hikeLocation](const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
    
 }
@@ -68,7 +68,7 @@ void HikeList::printByDuration()
     auto iterEnd = aMap.end();
     for (iter; iter != iterEnd; ++iter)
         myMultiMap.insert(pair<int, string>(iter->first.getDuration(), iter->first.getLocation()));  
-    for_each(myMultiMap.begin(), myMultiMap.end(), [](const pair<int, string>& h) {cout << "(" << h.first << ") " << h.second << endl;});
+    for_each(myMultiMap.begin(), myMultiMap.end(), [](auto& h) {cout << "(" << h.first << ") " << h.second << endl;});
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)
@@ -97,7 +97,7 @@ void HikeList::printByPrice()
 
 void HikeList::printByHikeName(string hikeName)
 {
-    multimap<const Hike&, double>::iterator it = find_if (aMap.begin(), aMap.end(),
+    auto it = find_if (aMap.begin(), aMap.end(),
         [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});       
 
     cout << fixed << showpoint << setprecision(2);

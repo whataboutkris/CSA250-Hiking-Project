@@ -67,8 +67,8 @@ void HikeList::printByDuration()
     auto iter = aMap.begin();
     auto iterEnd = aMap.end();
     for (iter; iter != iterEnd; ++iter)
-        myMultiMap.insert(pair<int,string>(iter->first.getDuration(), iter->first.getLocation()));   // is this correct? + sort by duration?
-    for_each(myMultiMap.begin(), myMultiMap.end(), [](pair<int, string>&h) {cout << "(" << h.first << ") " << h.second << endl;});// WIP - Is the lambda for accessing myMultiMap correct in this case ?
+        myMultiMap.insert(pair<int, string>(iter->first.getDuration(), iter->first.getLocation()));   // is this correct? + sort by duration?
+    for_each(myMultiMap.begin(), myMultiMap.end(), [](const pair<int, string>& h) {cout << "(" << h.first << ") " << h.second << endl;});// WIP - Is the lambda for accessing myMultiMap correct in this case ?
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty)
@@ -81,16 +81,18 @@ void HikeList::printByDifficulty(char hikeDifficulty)
 
 void HikeList::printByPrice()
 {
-    Hike hike;
+    //Hike hike;
     multimap<double, pair<string, string>> mymultimap;
-
-    mymultimap.emplace(aMap, make_pair(hike.getHikeName(), hike.getLocation()));
+    auto iter = aMap.begin();
+    auto iterEnd = aMap.end();
+    for (iter; iter != iterEnd; iter++)
+        mymultimap.emplace(iter->second, make_pair(iter->first.getLocation(), iter->first.getHikeName()));
 
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "$ " << i.first << " - " << hike.getLocation() << " (" <<
-            hike.getHikeName() << ")\n";
+        cout << "$ " << i.first << " - " << i.second.first << " (" <<   //not sure what to put in the spot of getPrice
+            i.second.second << ")\n";
 }
 
 void HikeList::printByHikeName(string hikeName)

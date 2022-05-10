@@ -22,7 +22,7 @@ class Interface
 {
 public:
     void displayMenu();
-    void processReservation(HikeList&, MemberList&, Reservations&);
+    void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations);
     void chooseByLocation(HikeList&, MemberList&, Reservations&);
     void chooseByDuration(HikeList&, MemberList&, Reservations&);
     void chooseByDifficulty(HikeList&, MemberList&, Reservations&);

@@ -35,7 +35,7 @@ void HikeList::addHike2(const string& hikeLocation, const string& hikeName,
 double HikeList::getPrice(string hikeName)
 {
     auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});
-    return priceGet->second; //This is bad? It crashes here on the overloaded operator for HikeList. 
+    return priceGet->second;
 }
 
 void HikeList::printAllLocations()

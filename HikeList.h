@@ -20,8 +20,8 @@
 class HikeList
 {
 public:
-    void addHike1(const Hike&, double hikePrice);
-    void addHike2(const std::string& hikeLocation, const std::string& hikeName,
+    void addHike(const Hike&, double hikePrice);
+    void addHike(const std::string& hikeLocation, const std::string& hikeName,
      int hikeDuration, char hikeDifficulty, double hikePrice);
     double getPrice(std::string hikeName);
     void printAllLocations();

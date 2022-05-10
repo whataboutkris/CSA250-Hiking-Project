@@ -25,11 +25,11 @@ int main()
 
 
 	HikeList h;
-	h.addHike2("Montana", "Somewhere", 2, 'e', 453);
+	h.addHike2("Montana", "Somewhere", 2, 'e', 453); 
 	h.addHike2("California", "Zion", 3, 'm', 2904);
 	
 	h.addHike1(myHike, 98987);
-	cout << h.getPrice("Glacier");
+	//cout << h.getPrice("Glacier"); //Crashes in getPrice()
 	h.printAllLocations();
 	h.printByLocation("Montana");
 	h.printByDuration();

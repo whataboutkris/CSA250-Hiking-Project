@@ -20,12 +20,12 @@
 using namespace std;
 
 
-void HikeList::addHike1(const Hike& hike, double hikePrice)
+void HikeList::addHike(const Hike& hike, double hikePrice)
 {
     aMap.insert(pair<const Hike&, double>(hike, hikePrice));
 }
 
-void HikeList::addHike2(const string& hikeLocation, const string& hikeName,
+void HikeList::addHike(const string& hikeLocation, const string& hikeName,
     int hikeDuration, char hikeDifficulty, double hikePrice)
 {
     Hike insertHike(hikeLocation, hikeName, hikeDuration, hikeDifficulty);

@@ -32,7 +32,17 @@ Reservations::~Reservations()
     clearList();
 }
 
-Node *Reservations::findReservation(int 
+Node *Reservations::findReservation(int newReservation) const
+{
+    Node *current = first;
+    int position  = 1;
+    while(position != newReservation)
+    {
+        current =current->getNext();
+        ++position;
+    }
+    return current;
+ }
 =======
 #include <iostream>
 #include <string>

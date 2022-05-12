@@ -55,9 +55,9 @@ public:
 ~Reservations();
 
 private:
-	int *findReservation(const int& newReservationNumber) const;
-	Reservations *first;
-	Reservations *last;
+	Node *findReservation(int newReservationNumber) const;
+	Node *first;
+	Node *last;
 	int numbOfNodes;
 
 };

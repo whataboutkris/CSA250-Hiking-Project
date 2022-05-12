@@ -19,7 +19,7 @@ const int DEFAULT_RESERVATION = 50001;
 class Node
 {
 public:
-	Node() : reservationNumber(DEFAULT_RESERVATION), memID(0), prev(nullptr), next(nullptr) {}
+	Node() : reservationNumber(DEFAULT_RESERVATION), memID(0),hikeName(), prev(nullptr), next(nullptr) {}
 	Node (int theReNumb, int theMemID,std::string theHikeName, Node *prevLink, Node *nextLink)
 	: reservationNumber(theReNumb), memID(theMemID), hikeName(theHikeName), prev (prevLink), next (nextLink) {}
 	int getreservationNumber( ) const { return reservationNumber; }

@@ -31,6 +31,8 @@ Reservations::~Reservations()
 {
     clearList();
 }
+
+Node *Reservations::findReservation(int 
 =======
 #include <iostream>
 #include <string>

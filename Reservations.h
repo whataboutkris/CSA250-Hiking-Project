@@ -13,7 +13,9 @@
 
 #ifndef RESERVATIONS_H
 #define RESERVATIONS_H
-#include <iostream>
+
+#include <HikeList.h>
+#include <MemberList.h>
 
 const int DEFAULT_RESERVATION = 50001;
 class Node

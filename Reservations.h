@@ -48,7 +48,7 @@ class Reservations
 public:
 	Reservations () : first(nullptr), last(nullptr), numbOfNodes(0) {}
 	int addReservation(int newMemID, std::string hikeName);
-	//int *findReservation(const int& newReNumb) const;
+	
 	void cancelReservation(int newReservationNumber);
 	void printReservation(int newReservationNumber, const HikeList& newHikeList, const MemberList& newMemberList) const;
 	void clearList();

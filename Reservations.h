@@ -22,8 +22,8 @@ class Node
 {
 public:
 	Node() : reservationNumber(DEFAULT_RESERVATION), memID(0),hikeName(), prev(nullptr), next(nullptr) {}
-	Node (int theReNumb, int theMemID,std::string theHikeName, Node *prevLink, Node *nextLink)
-	: reservationNumber(theReNumb), memID(theMemID), hikeName(theHikeName), prev (prevLink), next (nextLink) {}
+	Node (int reservationNumb, int theMemID,std::string theHikeName, Node *prevLink, Node *nextLink)
+	: reservationNumber(reservationNumb), memID(theMemID), hikeName(theHikeName), prev (prevLink), next (nextLink) {}
 	int getreservationNumber( ) const { return reservationNumber; }
 	int getMembID( ) const { return memID; }
 	std::string getHikeName ( ) const {return hikeName; }

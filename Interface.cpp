@@ -12,6 +12,7 @@
 */
 
 #include "Interface.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -35,14 +36,56 @@ void displayMenu()
 void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
 {
     cout << "Please make a selection: ";
+    int input;
+    cin >> input;
+    if (input == 1) {
+        cout << "\n";
+        chooseByLocation(hikeList, memberList, reservations);
+    }
+    else if (input == 2) {
+        cout << "\n";
+
+    }
+    else if (input == 3) {
+
+    }
+    else if (input == 4) {
+
+    }
+    else if (input == 5) {
+
+    }
+    else if (input == 6) {
+
+    }
+    else if (input == 7) {
+
+    }
+    else if (input == 8) {
+        cout << "Thank you for visiting!";
+    }
 }
-//void chooseByLocation(HikeList&, MemberList&, Reservations&)
+
+void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
+    myHikeList.printAllLocations();
+    cout << "" << endl;
+    cout << "Choose a location: ";
+    string input;
+    cin >> input;
+    cout << "\n";
+    myHikeList.printByLocation(input);
+    //askToReserve();
+
+}
+
 //void chooseByDuration(HikeList&, MemberList&, Reservations&)
 //void chooseByDifficulty(HikeList&, MemberList&, Reservations&)
 //void chooseByPrice(HikeList&, MemberList&, Reservations&)
-//int askIfMember(MemberList&)
-//int addNewMember(MemberList&)
 //void makeReservation(HikeList&, MemberList&, Reservations&)
 //void viewReservation(HikeList&, MemberList&, Reservations&)
 //void cancelReservation(HikeList&, MemberList&, Reservations&)
-//void askToReserve(HikeList&, MemberList&, Reservations&)
+//int askIfMember(MemberList&)
+//int addNewMember(MemberList&)
+void askToReserve(HikeList&, MemberList&, Reservations&) {
+    cout << "Would you like to make a reservation? (y/n)";
+}

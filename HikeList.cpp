@@ -55,7 +55,7 @@ void HikeList::printByLocation(const string& hikeLocation) const {
     while (byLocation != iterEnd)
     {
         cout << byLocation->first;
-        cout << "    Price: (per person): $ " << byLocation->second << endl;
+        cout << "    Price: (per person): $ " << byLocation->second << endl << endl;
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
             (const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
@@ -64,7 +64,7 @@ void HikeList::printByLocation(const string& hikeLocation) const {
 
 void HikeList::printByDuration() const
 {
-    multimap<int, string> myMultiMap; //(duration, name)
+    multimap<int, string> myMultiMap; 
     auto iter = aMap.begin();
     auto iterEnd = aMap.end();
     for (iter; iter != iterEnd; ++iter)
@@ -90,7 +90,6 @@ void HikeList::printByDifficulty(char hikeDifficulty) const
 
 void HikeList::printByPrice() const
 {
-    //Hike hike;
     multimap<double, pair<string, string>> mymultimap;
     auto iter = aMap.begin();
     auto iterEnd = aMap.end();

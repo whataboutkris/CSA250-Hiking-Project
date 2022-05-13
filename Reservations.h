@@ -14,8 +14,8 @@
 #ifndef RESERVATIONS_H
 #define RESERVATIONS_H
 
-#include <HikeList.h>
-#include <MemberList.h>
+#include "HikeList.h"
+#include "MemberList.h"
 
 const int DEFAULT_RESERVATION = 50001;
 class Node
@@ -49,19 +49,18 @@ class Reservations
 {
 public:
 	Reservations () : first(nullptr), last(nullptr), numbOfNodes(0) {}
-	int addReservation(int newMemID, std::string hikeName);
-	
+	int addReservation(int newMemID, const std::string& hikeName);
 	void cancelReservation(int newReservationNumber);
 	void printReservation(int newReservationNumber, const HikeList& newHikeList, const MemberList& newMemberList) const;
 	void clearList();
 ~Reservations();
 
 private:
-	Node *findReservation(int newReservationNumber) const;
+
+	Node* findReservation(int newReservationNumber) const;
 	Node *first;
 	Node *last;
 	int numbOfNodes;
-
 };
 
 #endif

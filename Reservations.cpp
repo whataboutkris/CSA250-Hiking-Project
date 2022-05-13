@@ -1,53 +1,99 @@
-<<<<<<< HEAD
+////<<<<<<< HEAD
+//#include <iostream>
+//#include <string>
+//#include "Reservations.h"
+//using namespace std;
+//
+//void Reservations::clearList()
+//{
+//    if (count == 1)
+//    {
+//        delete first;
+//        first = last = nullptr;
+//        count = 0;
+//    }
+//    else if (count > 1)
+//    {
+//        Node* current = first;
+//        while (first != nullptr)
+//        {
+//            first = first->getNext();
+//            delete current;
+//            current = first;
+//        }
+//        
+//        last = nullptr;
+//        count = 0;
+//    }
+//}
+//
+//Reservations::~Reservations()
+//{
+//    clearList();
+//}
+//=======
+
 #include <iostream>
 #include <string>
 #include "Reservations.h"
 using namespace std;
 
-void Reservations::clearList()
+Node* Reservations::findReservation(int newReservation) const
 {
-    if (count == 1)
+    Node* current = first;
+    
+    while ( current->getreservationNumber() != newReservation)
+    {
+        current = current->getNext();
+    }
+    return current;
+}
+
+
+int Reservations::addReservation(int newMemID, const string& hikeName)
+{
+    if (numbOfNodes == 0)
+    {
+        first = new Node(DEFAULT_RESERVATION, newMemID, hikeName, nullptr, nullptr);
+        last = first;
+    }
+    else
+    {
+        last = new Node((last->getreservationNumber()) + 1, newMemID, hikeName, last, nullptr);
+        last->getPrev()->setNext(last);
+    }
+
+    ++numbOfNodes;
+    return last->getreservationNumber();
+}
+
+void Reservations::cancelReservation(int newReservationNumber)
+{
+    if (numbOfNodes == 1)
     {
         delete first;
         first = last = nullptr;
-        count = 0;
     }
-    else if (count > 1)
+    else
     {
-        Node* current = first;
-        while (first != nullptr)
-        {
-            first = first->getNext();
-            delete current;
-            current = first;
-        }
-        
-        last = nullptr;
-        count = 0;
+        Node* toDelete = findReservation(newReservationNumber);
+        toDelete->getPrev()->setNext(toDelete->getNext());
+        toDelete->getNext()->setPrev(toDelete->getPrev());
+        delete toDelete;
+        toDelete = nullptr;
     }
+    --numbOfNodes;
 }
 
-Reservations::~Reservations()
+void Reservations::printReservation(int newReservationNumber, 
+        const HikeList& newHikeList, const MemberList& newMemberList) const
 {
-    clearList();
+    Node* printer = findReservation(newReservationNumber);
+    newHikeList.printByHikeName(printer->getHikeName());
+    
+    cout << "   Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
+        - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
 }
-
-Node *Reservations::findReservation(int newReservation) const
-{
-    Node *current = first;
-    int position  = 1;
-    while(position != newReservation)
-    {
-        current =current->getNext();
-        ++position;
-    }
-    return current;
- }
-=======
-#include <iostream>
-#include <string>
-#include "Reservations.h"
-using namespace std;
 
 void Reservations::clearList()
 {
@@ -59,7 +105,7 @@ void Reservations::clearList()
         temp = first;
     }
     last = nullptr;
-    count = 0;
+    numbOfNodes = 0;
 }
 
 Reservations::~Reservations()
@@ -73,4 +119,4 @@ Reservations::~Reservations()
     }
     first = last = nullptr;
 }
->>>>>>> d5d056be419a71123008bfdbfc97603e341ea1a2
+//>>>>>>> d5d056be419a71123008bfdbfc97603e341ea1a2

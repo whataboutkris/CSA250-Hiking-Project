@@ -12,11 +12,9 @@
 */
 
 #include <iostream>
-#include <map>
 #include <iomanip>
 #include <algorithm>
 #include "HikeList.h"
-#include "Hike.h"
 using namespace std;
 
 
@@ -32,13 +30,14 @@ void HikeList::addHike(const string& hikeLocation, const string& hikeName,
     aMap.insert(make_pair(insertHike, hikePrice));
 }
 
-double HikeList::getPrice(string hikeName)
+double HikeList::getPrice(const string& hikeName) const
 {
-    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName](const auto h) {return h.first.getHikeName() == hikeName;});
-    return priceGet->second; //This is bad? It crashes here on the overloaded operator for HikeList. 
+    auto priceGet = find_if(aMap.begin(), aMap.end(), [&hikeName]
+        (const auto h) {return h.first.getHikeName() == hikeName;});
+    return priceGet->second; 
 }
 
-void HikeList::printAllLocations()
+void HikeList::printAllLocations() const
 {
     auto it = aMap.begin();
     auto itEnd = aMap.end();
@@ -49,19 +48,21 @@ void HikeList::printAllLocations()
     }
 }
 
-void HikeList::printByLocation(string hikeLocation) {
+void HikeList::printByLocation(const string& hikeLocation) const {
     auto iterEnd = aMap.end();
-    auto byLocation = find_if(aMap.begin(), iterEnd, [&hikeLocation] (const auto& h) {return h.first.getLocation() == hikeLocation;});
+    auto byLocation = find_if(aMap.begin(), iterEnd, [&hikeLocation] 
+        (const auto& h) {return h.first.getLocation() == hikeLocation;});
     while (byLocation != iterEnd)
     {
         cout << byLocation->first;
         cout << "    Price: (per person): $ " << byLocation->second << endl;
-        byLocation = find_if(++byLocation, iterEnd, [&hikeLocation](const auto& h) {return h.first.getLocation() == hikeLocation; });
+        byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
+            (const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
    
 }
 
-void HikeList::printByDuration()
+void HikeList::printByDuration() const
 {
     multimap<int, string> myMultiMap; //(duration, name)
     auto iter = aMap.begin();
@@ -71,7 +72,7 @@ void HikeList::printByDuration()
     for_each(myMultiMap.begin(), myMultiMap.end(), [](auto& h) {cout << "(" << h.first << ") " << h.second << endl;});
 }
 
-void HikeList::printByDuration(int days) {
+void HikeList::printByDuration(int days) const{
     for (auto& i : aMap)
         if (i.first.getDuration() == days) {
             cout << i.first.getHikeName() << " (" << i.first.getLocation() << ")" << endl
@@ -79,7 +80,7 @@ void HikeList::printByDuration(int days) {
                 << "Duration: " << i.first.getDuration() << endl;
         }
 }
-void HikeList::printByDifficulty(char hikeDifficulty)
+void HikeList::printByDifficulty(char hikeDifficulty) const
 {
     Hike hike;
     for (auto& i : aMap)
@@ -87,7 +88,7 @@ void HikeList::printByDifficulty(char hikeDifficulty)
         hike.getLocation() << endl;
 }
 
-void HikeList::printByPrice()
+void HikeList::printByPrice() const
 {
     //Hike hike;
     multimap<double, pair<string, string>> mymultimap;
@@ -103,7 +104,7 @@ void HikeList::printByPrice()
             i.second.second << ")\n";
 }
 
-void HikeList::printByHikeName(string hikeName)
+void HikeList::printByHikeName(const string& hikeName) const
 {
     auto it = find_if (aMap.begin(), aMap.end(),
         [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});       

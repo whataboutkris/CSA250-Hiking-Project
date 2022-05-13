@@ -23,14 +23,14 @@ public:
     void addHike(const Hike&, double hikePrice);
     void addHike(const std::string& hikeLocation, const std::string& hikeName,
      int hikeDuration, char hikeDifficulty, double hikePrice);
-    double getPrice(std::string hikeName);
-    void printAllLocations();
-    void printByLocation(std::string hikeLocation);
-    void printByDuration();
-    void printByDuration(int days);
-    void printByDifficulty(char hikeDifficulty);
-    void printByPrice();
-    void printByHikeName(std::string hikeName);
+    double getPrice(const std::string& hikeName) const;
+    void printAllLocations() const;
+    void printByLocation(const std::string& hikeLocation) const;
+    void printByDuration() const;
+    void printByDuration(int days) const;
+    void printByDifficulty(char hikeDifficulty) const;
+    void printByPrice() const;
+    void printByHikeName(const std::string& hikeName) const;
     void clearList();
 
 private:

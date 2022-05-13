@@ -12,13 +12,10 @@
 */
 
 #include "Interface.h"
-#include "HikeList.h"
-#include "MemberList.h"
-#include "Reservations.h"
 
 using namespace std;
 
-void Interface::displayMenu()
+void displayMenu()
 {
     cout << "***************************************************\n"
          << "                HIKING IN THE US                   \n"
@@ -35,7 +32,7 @@ void Interface::displayMenu()
          << "         8. Exit\n" << endl;
 }
 
-void Interface::processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
+void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
 {
     cout << "Please make a selection: ";
 }

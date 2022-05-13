@@ -18,23 +18,17 @@
 #include "MemberList.h"
 #include "Reservations.h"
 
-class Interface
-{
-public:
-    void displayMenu();
-    void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations);
-    void chooseByLocation(HikeList&, MemberList&, Reservations&);
-    void chooseByDuration(HikeList&, MemberList&, Reservations&);
-    void chooseByDifficulty(HikeList&, MemberList&, Reservations&);
-    void chooseByPrice(HikeList&, MemberList&, Reservations&);
-    int askIfMember(MemberList&);
-    int addNewMember(MemberList&);
-    void makeReservation(HikeList&, MemberList&, Reservations&);
-    void viewReservation(HikeList&, MemberList&, Reservations&);
-    void cancelReservation(HikeList&, MemberList&, Reservations&);
-    void askToReserve(HikeList&, MemberList&, Reservations&);
-private:
-
-};
+void displayMenu();
+void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations);
+void chooseByLocation(HikeList&, MemberList&, Reservations&);
+void chooseByDuration(HikeList&, MemberList&, Reservations&);
+void chooseByDifficulty(HikeList&, MemberList&, Reservations&);
+void chooseByPrice(HikeList&, MemberList&, Reservations&);
+int askIfMember(MemberList&);
+int addNewMember(MemberList&);
+void makeReservation(HikeList&, MemberList&, Reservations&);
+void viewReservation(HikeList&, MemberList&, Reservations&);
+void cancelReservation(HikeList&, MemberList&, Reservations&);
+void askToReserve(HikeList&, MemberList&, Reservations&);
 
 #endif

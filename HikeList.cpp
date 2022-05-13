@@ -71,6 +71,14 @@ void HikeList::printByDuration()
     for_each(myMultiMap.begin(), myMultiMap.end(), [](auto& h) {cout << "(" << h.first << ") " << h.second << endl;});
 }
 
+void HikeList::printByDuration(int days) {
+    for (auto& i : aMap)
+        if (i.first.getDuration() == days) {
+            cout << i.first.getHikeName() << " (" << i.first.getLocation() << ")" << endl
+                << "Difficulty: " << i.first.getDifficulty() << endl
+                << "Duration: " << i.first.getDuration() << endl;
+        }
+}
 void HikeList::printByDifficulty(char hikeDifficulty)
 {
     Hike hike;

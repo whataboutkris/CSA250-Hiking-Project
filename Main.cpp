@@ -23,16 +23,14 @@ int main()
 	Hike myHike("Montana", "Glacier", 5, 'e');
 	cout << myHike.getDuration();
 
-
 	HikeList h;
-	h.addHike("Montana", "Somewhere", 2, 'e', 453); 
-	h.addHike("California", "Zion", 3, 'm', 2904);
-	
+	h.addHike("Montana", "Somewhere", 5, 'e', 8453); 
+	h.addHike("California", "Zion", 5, 'm', 2904);
 	h.addHike(myHike, 98987);
 	//cout << h.getPrice("Glacier"); //Crashes in getPrice()
-	h.printAllLocations();
-	h.printByLocation("Montana");
-	h.printByDuration();
+	//h.printAllLocations();
+	//h.printByLocation("Montana");
+	h.printByDuration(5);
 
 	return 0;
 }

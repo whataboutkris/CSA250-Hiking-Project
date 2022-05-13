@@ -14,26 +14,53 @@
 #ifndef RESERVATIONS_H
 #define RESERVATIONS_H
 
-#include "MemberList.h"
-#include "HikeList.h"
+#include <HikeList.h>
+#include <MemberList.h>
 
+const int DEFAULT_RESERVATION = 50001;
 class Node
 {
 public:
+	Node() : reservationNumber(DEFAULT_RESERVATION), memID(0),hikeName(), prev(nullptr), next(nullptr) {}
+	Node (int theReNumb, int theMemID,std::string theHikeName, Node *prevLink, Node *nextLink)
+	: reservationNumber(theReNumb), memID(theMemID), hikeName(theHikeName), prev (prevLink), next (nextLink) {}
+	int getreservationNumber( ) const { return reservationNumber; }
+	int getMembID( ) const { return memID; }
+	std::string getHikeName ( ) const {return hikeName; }
+	Node *getPrev ( ) const { return prev; }
+	Node *getNext ( ) const { return next; }
+	void setReservationNumber(int theReNumb) { reservationNumber = theReNumb; }
+	void setMemID(int theMemID) { memID = theMemID; }
+	void setHikeName(std::string theHikeName) { hikeName = theHikeName; }
+	void setPrev (Node *prevLink) { prev = prevLink; }
+	void setNext (Node *nextLink) { next = nextLink; }    
+~Node(){}
 
 private:
 	int reservationNumber;
-	int memberID;
+	int memID;
 	std::string hikeName;
-	Node* next;
 	Node* prev;
+	Node* next;
 };
+
 
 class Reservations
 {
 public:
+	Reservations () : first(nullptr), last(nullptr), numbOfNodes(0) {}
+	int addReservation(int newMemID, std::string hikeName);
+	
+	void cancelReservation(int newReservationNumber);
+	void printReservation(int newReservationNumber, const HikeList& newHikeList, const MemberList& newMemberList) const;
+	void clearList();
+~Reservations();
 
 private:
+	Node *findReservation(int newReservationNumber) const;
+	Node *first;
+	Node *last;
+	int numbOfNodes;
 
 };
 

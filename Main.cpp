@@ -29,6 +29,7 @@ int main()
 	myHikeList.addHike(myHike2, 222);
 	myHikeList.addHike("Utah", "Somewhere", 5, 'e', 8453); 
 	myHikeList.addHike("California", "Zion", 5, 'm', 2904);
+
 	MemberList myMemberList;
 	myMemberList.addMember("Mike", "Hawk");
 

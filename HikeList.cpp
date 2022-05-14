@@ -105,7 +105,7 @@ void HikeList::printByPrice() const
 void HikeList::printByHikeName(const string& hikeName) const
 {
     auto it = find_if (aMap.begin(), aMap.end(),
-        [&hikeName](const pair<const Hike&, double>& h) {return h.first.getHikeName() == hikeName;});       
+        [&hikeName](const auto& h) {return h.first.getHikeName() == hikeName;});       
 
     cout << fixed << showpoint << setprecision(2);
     cout << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<

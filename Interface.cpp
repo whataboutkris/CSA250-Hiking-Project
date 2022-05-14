@@ -110,23 +110,25 @@ void chooseByPrice(HikeList& myHikeList, MemberList& myMemberList, Reservations&
     askToReserve(myHikeList, myMemberList, myReservations);
 }
 
-void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myRerservations) {
-    askIfMember(myMemberList);
+void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
+    int id = askIfMember(myMemberList);
     cout << "Which hike would you like to reserve (hike name) ?";
     string hikeInput;
     cin >> hikeInput;
 
+    myHikeList.printByHikeName(hikeInput);
+    cout << "       Discounted price using points: $ " << myHikeList.getPrice(hikeInput)
+        - (myMemberList.getPoints(id) / 100) << endl;
     
+    myReservations.addReservation(id, hikeInput);
 }
+
 void viewReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
 {
     cout << "Enter reservation #: ";
     int reservationInput(0);
     cin >> reservationInput;
-    if (Reservations::findReservation(reservationInput))
-    {
-        Reservations::printReservation(myHikeList, myMemberList, myReservations);
-    }
+    myReservations.printReservation(reservationInput, myHikeList, myMemberList);
 }
 
 void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
@@ -134,14 +136,14 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
     cout << "Enter reservation #: ";
     int reservationInput(0);
     cin >> reservationInput;
-    Reservations::findReservation(reservationInput);
-    Reservations::printReservation(myHikeList, myMemberList, myReservations);
+    myReservations.printReservation(reservationInput, myHikeList, myMemberList);
+
     cout << "Are you sure you want to cancel this reservation? (y/n) " ;
     char reservationInput;
     cin >> reservationInput;
     if (reservationInput == 'y') 
     {
-        Reservations::cancelReservation(myHikeList, myMemberList, myReservations);
+        myReservations.cancelReservation(reservationInput);
         cout << "Reservation #" <<  reservationInput << " has been canceled.";
     }
 }
@@ -150,22 +152,38 @@ int askIfMember(MemberList& myMemberList) {
     cout << "Are you a member? (y/n) ";
     char memberInput;
     cin >> memberInput;
+
     if (memberInput == 'y') {
         cout << "What is your member ID number? ";
         int idInput;
         cin >> idInput;
+
         cout << "What is your last name? ";
         string lastNameInput;
         cin >> lastNameInput;
         
-        //MemberList::printMember(idInput, lastNameInput); // ?
+        myMemberList.printMember(idInput, lastNameInput); 
     }
     else {
         addNewMember(myMemberList);
     }
 }
-int addNewMember(MemberList& myMemberList) {
+int addNewMember(MemberList& myMemberList) 
+{
+    string fName, lName;
+    cout << "       Let's add you to the member list!\n"
+         << "               What is your first name? ";
+    cin >> fName;
+    cout << "\n               What is your last name? ";
+    cin >> lName;
 
+    myMemberList.addMember(fName, lName);
+    cout << endl;
+
+    cout << "\n       Welcome to the club!\n"
+         << "               Your member ID number is: " << myMemberList.getLastID();
+
+    return myMemberList.getLastID();
 }
 void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {  
     cout << "Would you like to make a reservation? (y/n) ";

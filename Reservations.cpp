@@ -1,37 +1,3 @@
-////<<<<<<< HEAD
-//#include <iostream>
-//#include <string>
-//#include "Reservations.h"
-//using namespace std;
-//
-//void Reservations::clearList()
-//{
-//    if (count == 1)
-//    {
-//        delete first;
-//        first = last = nullptr;
-//        count = 0;
-//    }
-//    else if (count > 1)
-//    {
-//        Node* current = first;
-//        while (first != nullptr)
-//        {
-//            first = first->getNext();
-//            delete current;
-//            current = first;
-//        }
-//        
-//        last = nullptr;
-//        count = 0;
-//    }
-//}
-//
-//Reservations::~Reservations()
-//{
-//    clearList();
-//}
-//=======
 
 #include <iostream>
 #include <string>
@@ -91,7 +57,7 @@ void Reservations::printReservation(int newReservationNumber,
     Node* printer = findReservation(newReservationNumber);
     newHikeList.printByHikeName(printer->getHikeName());
     
-    cout << "   Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
+    cout << "       Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
         - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
 }
 
@@ -119,4 +85,3 @@ Reservations::~Reservations()
     }
     first = last = nullptr;
 }
-//>>>>>>> d5d056be419a71123008bfdbfc97603e341ea1a2

@@ -17,7 +17,6 @@
 #include "HikeList.h"
 using namespace std;
 
-
 void HikeList::addHike(const Hike& hike, double hikePrice)
 {
     aMap.insert(make_pair(hike, hikePrice));
@@ -59,7 +58,6 @@ void HikeList::printByLocation(const string& hikeLocation) const {
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
             (const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
-   
 }
 
 void HikeList::printByDuration() const
@@ -80,6 +78,7 @@ void HikeList::printByDuration(int days) const{
                 << "Duration: " << i.first.getDuration() << endl;
         }
 }
+
 void HikeList::printByDifficulty(char hikeDifficulty) const
 {
     Hike hike;

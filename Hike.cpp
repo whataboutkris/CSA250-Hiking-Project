@@ -16,8 +16,9 @@
 #include "Hike.h"
 using namespace std;
 
-    Hike::Hike(const string& newHikeLocation, const string& newHikeName,
-    int newDurationHike, char newHikeDifficulty) {
+Hike::Hike(const string& newHikeLocation, const string& newHikeName,
+    int newDurationHike, char newHikeDifficulty) 
+{
     hikeLocation = newHikeLocation;
     hikeName = newHikeName;
     hikeDuration = newDurationHike;

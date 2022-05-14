@@ -118,8 +118,34 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
 
     
 }
-//void viewReservation(HikeList&, MemberList&, Reservations&)
-//void cancelReservation(HikeList&, MemberList&, Reservations&)
+void viewReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
+{
+    cout << "Enter reservation #: ";
+    int reservationInput(0);
+    cin >> reservationInput;
+    if (Reservations::findReservation(reservationInput))
+    {
+        Reservations::printReservation(myHikeList, myMemberList, myReservations);
+    }
+}
+
+void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
+{
+    cout << "Enter reservation #: ";
+    int reservationInput(0);
+    cin >> reservationInput;
+    Reservations::findReservation(reservationInput);
+    Reservations::printReservation(myHikeList, myMemberList, myReservations);
+    cout << "Are you sure you want to cancel this reservation? (y/n) " ;
+    char reservationInput;
+    cin >> reservationInput;
+    if (reservationInput == 'y') 
+    {
+        Reservations::cancelReservation(myHikeList, myMemberList, myReservations);
+        cout << "Reservation #" <<  reservationInput << " has been canceled.";
+    }
+}
+
 int askIfMember(MemberList& myMemberList) {
     cout << "Are you a member? (y/n) ";
     char memberInput;

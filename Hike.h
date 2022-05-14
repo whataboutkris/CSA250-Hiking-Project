@@ -16,10 +16,8 @@
 #include <iostream>
 #include <string>
 
-
-
-
-class Hike {
+class Hike 
+{
     friend std::ostream& operator<<(std::ostream& out, const Hike& hike);
 public:
     Hike() : hikeDifficulty('e'), hikeDuration(0) {}

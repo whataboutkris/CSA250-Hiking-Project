@@ -146,6 +146,10 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
         myReservations.cancelReservation(reservationInput);
         cout << "Reservation #" <<  reservationInput << " has been canceled.";
     }
+    else
+    {
+        processReservation(myHikeList, myMemberList, myReservations)
+     }
 }
 
 int askIfMember(MemberList& myMemberList) {

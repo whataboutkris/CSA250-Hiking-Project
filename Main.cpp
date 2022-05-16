@@ -31,7 +31,8 @@ int main()
 	myHikeList.addHike("California", "Zion", 5, 'm', 2904);
 
 	MemberList myMemberList;
-	myMemberList.addMember("Mike", "Hawk");
+	myMemberList.addMember("Mike", "Hawk", 1000);
+	myMemberList.addMember("Riley", "David", 0);
 
 	Reservations myReservations;
 	myReservations.addReservation(111, "FakeHike");

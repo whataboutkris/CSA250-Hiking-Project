@@ -115,12 +115,15 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
     cout << "\n" << "Which hike would you like to reserve (hike name)?";
     string hikeInput;
     cin >> hikeInput;
-
     myHikeList.printByHikeName(hikeInput);
-    cout << "       Discounted price using points: $ " << myHikeList.getPrice(hikeInput)  // This cout crashes. 
-        - (myMemberList.getPoints(id) / 100) << endl;
+    cout << endl << "\n     Discounted price using points: $ " << myHikeList.getPrice(hikeInput)  
+        - (myMemberList.getPoints(id) / 100) << "\n" << endl;
     
     myReservations.addReservation(id, hikeInput);
+    cout << "Before proceeding, please make note of your reservation number." << endl;
+    cout << " Reservation #: "; //<< newly created reservation number goes here << endl;
+    cout << "( *** Will continue to scheduling and payment. *** )\n";
+
 }
 
 void viewReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
@@ -167,9 +170,11 @@ int askIfMember(MemberList& myMemberList) {
         cin >> lastNameInput;
         
         myMemberList.printMember(idInput, lastNameInput); 
+        return idInput;
     }
     else {
         addNewMember(myMemberList);
+        return myMemberList.getLastID();
     }
     return 0;
 }

@@ -108,9 +108,9 @@ void HikeList::printByHikeName(const string& hikeName) const
         [&hikeName](const auto& h) {return h.first.getHikeName() == hikeName;});       
 
     cout << fixed << showpoint << setprecision(2);
-    cout << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<
-        "    Difficulty: " << it->first.getDifficulty() << "\n    Duration: "
-        << it->first.getDuration() << " day(s)\n" << "    $" << it->second;
+    cout << "    " << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<
+        "     Difficulty: " << it->first.getDifficulty() << "\n     Duration: "
+        << it->first.getDuration() << " day(s)\n" << "     $" << it->second;
 }
 
 void HikeList::clearList()

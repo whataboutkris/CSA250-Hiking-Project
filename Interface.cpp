@@ -14,6 +14,7 @@
 #include "Interface.h"
 #include <string>
 #include <cstdlib>
+//#include <iostream>
 
 using namespace std;
 
@@ -39,6 +40,7 @@ void processReservation(HikeList& hikeList, MemberList& memberList, Reservations
     cout << "Please make a selection: ";
     int input;
     cin >> input;
+    cout << endl;
     while (input != 8) {
         if (input == 1) {
             cout << "\n";
@@ -68,6 +70,7 @@ void processReservation(HikeList& hikeList, MemberList& memberList, Reservations
         displayMenu();
         cout << "Please make a selection:";
         cin >> input;
+        cout << endl;
     }
     cout << "\nThank you for visiting!\n";
 }
@@ -119,9 +122,8 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
     cout << endl << "\n     Discounted price using points: $ " << myHikeList.getPrice(hikeInput)  
         - (myMemberList.getPoints(id) / 100) << "\n" << endl;
     
-    myReservations.addReservation(id, hikeInput);
     cout << "Before proceeding, please make note of your reservation number." << endl;
-    cout << " Reservation #: "; //<< newly created reservation number goes here << endl;
+    cout << " Reservation #: " << myReservations.addReservation(id, hikeInput) << endl; //<< newly created reservation number goes here << endl;
     cout << "( *** Will continue to scheduling and payment. *** )\n";
 
 }
@@ -156,7 +158,7 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
 }
 
 int askIfMember(MemberList& myMemberList) {
-    cout << "       Are you a member? (y/n) ";
+    cout << "\nAre you a member? (y/n) ";
     char memberInput;
     cin >> memberInput;
 
@@ -196,7 +198,7 @@ int addNewMember(MemberList& myMemberList)
     return myMemberList.getLastID();
 }
 void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {  
-    cout << "       Would you like to make a reservation? (y/n) ";
+    cout << "\nWould you like to make a reservation? (y/n) ";
     char reservationInput;
     cin >> reservationInput;
     if (reservationInput == 'y') {

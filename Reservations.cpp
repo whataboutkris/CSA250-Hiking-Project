@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Reservations.h"
+
 using namespace std;
 
 Node* Reservations::findReservation(int newReservation) const
@@ -57,7 +58,7 @@ void Reservations::printReservation(int newReservationNumber,
     Node* printer = findReservation(newReservationNumber);
     newHikeList.printByHikeName(printer->getHikeName());
     
-    cout << "       Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
+    cout << "\n       Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
         - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
 }
 

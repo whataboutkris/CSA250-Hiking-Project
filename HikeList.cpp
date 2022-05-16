@@ -42,7 +42,7 @@ void HikeList::printAllLocations() const
     auto itEnd = aMap.end();
     while (it != itEnd)
     {
-        cout << it->first.getLocation() << endl;
+        cout << "       " << it->first.getLocation() << endl;
         it = aMap.upper_bound(it->first);
     }
 }
@@ -53,7 +53,7 @@ void HikeList::printByLocation(const string& hikeLocation) const {
         (const auto& h) {return h.first.getLocation() == hikeLocation;});
     while (byLocation != iterEnd)
     {
-        cout << byLocation->first;
+        cout << "   " << byLocation->first;
         cout << "    Price: (per person): $ " << byLocation->second << endl << endl;
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
             (const auto& h) {return h.first.getLocation() == hikeLocation; });

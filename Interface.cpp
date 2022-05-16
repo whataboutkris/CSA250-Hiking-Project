@@ -112,12 +112,12 @@ void chooseByPrice(HikeList& myHikeList, MemberList& myMemberList, Reservations&
 
 void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
     int id = askIfMember(myMemberList);
-    cout << "Which hike would you like to reserve (hike name) ?";
+    cout << "\n" << "Which hike would you like to reserve (hike name)?";
     string hikeInput;
     cin >> hikeInput;
 
     myHikeList.printByHikeName(hikeInput);
-    cout << "       Discounted price using points: $ " << myHikeList.getPrice(hikeInput)
+    cout << "       Discounted price using points: $ " << myHikeList.getPrice(hikeInput)  // This cout crashes. 
         - (myMemberList.getPoints(id) / 100) << endl;
     
     myReservations.addReservation(id, hikeInput);
@@ -134,26 +134,26 @@ void viewReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
 void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
 {
     cout << "Enter reservation #: ";
-    int reservationInput(0);
-    cin >> reservationInput;
-    myReservations.printReservation(reservationInput, myHikeList, myMemberList);
+    int reservationNumberInput(0);
+    cin >> reservationNumberInput;
+    myReservations.printReservation(reservationNumberInput, myHikeList, myMemberList);
 
     cout << "Are you sure you want to cancel this reservation? (y/n) " ;
     char reservationInput;
     cin >> reservationInput;
     if (reservationInput == 'y') 
     {
-        myReservations.cancelReservation(reservationInput);
-        cout << "Reservation #" <<  reservationInput << " has been canceled.";
+        myReservations.cancelReservation(reservationNumberInput);
+        cout << "Reservation #" << reservationNumberInput << " has been canceled.";
     }
     else
     {
-        processReservation(myHikeList, myMemberList, myReservations)
+        processReservation(myHikeList, myMemberList, myReservations);
      }
 }
 
 int askIfMember(MemberList& myMemberList) {
-    cout << "Are you a member? (y/n) ";
+    cout << "       Are you a member? (y/n) ";
     char memberInput;
     cin >> memberInput;
 
@@ -171,12 +171,13 @@ int askIfMember(MemberList& myMemberList) {
     else {
         addNewMember(myMemberList);
     }
+    return 0;
 }
 int addNewMember(MemberList& myMemberList) 
 {
     string fName, lName;
-    cout << "       Let's add you to the member list!\n"
-         << "               What is your first name? ";
+    cout << "\n" << "       Let's add you to the member list!\n"
+        << "               What is your first name? ";
     cin >> fName;
     cout << "\n               What is your last name? ";
     cin >> lName;
@@ -185,12 +186,12 @@ int addNewMember(MemberList& myMemberList)
     cout << endl;
 
     cout << "\n       Welcome to the club!\n"
-         << "               Your member ID number is: " << myMemberList.getLastID();
+        << "               Your member ID number is: " << myMemberList.getLastID();
 
     return myMemberList.getLastID();
 }
 void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {  
-    cout << "Would you like to make a reservation? (y/n) ";
+    cout << "       Would you like to make a reservation? (y/n) ";
     char reservationInput;
     cin >> reservationInput;
     if (reservationInput == 'y') {

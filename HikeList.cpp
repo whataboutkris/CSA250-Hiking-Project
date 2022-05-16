@@ -42,7 +42,7 @@ void HikeList::printAllLocations() const
     auto itEnd = aMap.end();
     while (it != itEnd)
     {
-        cout << "       " << it->first.getLocation() << endl;
+        cout << "         " << it->first.getLocation() << endl;
         it = aMap.upper_bound(it->first);
     }
 }
@@ -53,8 +53,8 @@ void HikeList::printByLocation(const string& hikeLocation) const {
         (const auto& h) {return h.first.getLocation() == hikeLocation;});
     while (byLocation != iterEnd)
     {
-        cout << "   " << byLocation->first;
-        cout << "    Price: (per person): $ " << byLocation->second << endl << endl;
+        cout << "         " << byLocation->first;
+        cout << "         Price: (per person): $ " << byLocation->second << endl << endl;   //where is diff and duration printed here??
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
             (const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
@@ -108,9 +108,9 @@ void HikeList::printByHikeName(const string& hikeName) const
         [&hikeName](const auto& h) {return h.first.getHikeName() == hikeName;});       
 
     cout << fixed << showpoint << setprecision(2);
-    cout << "    " << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<
-        "     Difficulty: " << it->first.getDifficulty() << "\n     Duration: "
-        << it->first.getDuration() << " day(s)\n" << "     $" << it->second;
+    cout << "         " << it->first.getHikeName() << " (" << it->first.getLocation() << ")\n" <<
+        "           Difficulty: " << it->first.getDifficulty() << "\n           Duration: "
+        << it->first.getDuration() << " day(s)\n" << "           $" << it->second;
 }
 
 void HikeList::clearList()

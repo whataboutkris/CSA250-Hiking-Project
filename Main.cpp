@@ -23,27 +23,7 @@ using namespace std;
 
 int main()
 {
-	//Hike myHike("Montana", "Glacier", 5, 'e');
-	//Hike myHike1("Montana", "uuuuuu", 5, 'm');
-	//Hike myHike2("Montana", "auuugh", 5, 's');
-
-	//myHikeList.addHike(myHike, 999);
-	//myHikeList.addHike(myHike1, 111);
-	//myHikeList.addHike(myHike2, 222);
-	//myHikeList.addHike("Utah", "Somewhere", 5, 'e', 8453); 
-	//myHikeList.addHike("California", "Zion", 5, 'm', 2904);
-
-	//myMemberList.addMember("Mike", "Hawk", 1000);
-	//myMemberList.addMember("Riley", "David", 0);
-
-	//myReservations.addReservation(111, "FakeHike");
 	
-	//h.addHike(myHike, 98987);
-	//cout << h.getPrice("Glacier"); 
-	//h.printAllLocations();
-	//h.printByLocation("Montana");
-	//h.printByDuration(5);
-
 	HikeList myHikeList;
 	getHikeData(myHikeList);
 	MemberList myMemberList;

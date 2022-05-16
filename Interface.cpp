@@ -118,13 +118,14 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
     cout << "\n" << "Which hike would you like to reserve (hike name)?";
     string hikeInput;
     cin >> hikeInput;
+    cout << "\n";
     myHikeList.printByHikeName(hikeInput);
-    cout << endl << "\n     Discounted price using points: $ " << myHikeList.getPrice(hikeInput)  
+    cout << "\n" << "\n" << "         Discounted price using points: $" << myHikeList.getPrice(hikeInput)  
         - (myMemberList.getPoints(id) / 100) << "\n" << endl;
     
-    cout << "Before proceeding, please make note of your reservation number." << endl;
-    cout << " Reservation #: " << myReservations.addReservation(id, hikeInput) << endl; //<< newly created reservation number goes here << endl;
-    cout << "( *** Will continue to scheduling and payment. *** )\n";
+    cout << "         Before proceeding, please make note of your reservation number." << endl;
+    cout << "           Reservation #: " << myReservations.addReservation(id, hikeInput) << endl << endl;
+    cout << "( *** Will continue to scheduling and payment. *** )" << endl << endl;
 
 }
 

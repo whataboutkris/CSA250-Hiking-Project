@@ -17,7 +17,10 @@
 #include "HikeList.h"
 #include "MemberList.h"
 
+#include <string>
+
 const int DEFAULT_RESERVATION = 50001;
+
 class Node
 {
 public:
@@ -49,11 +52,15 @@ class Reservations
 {
 public:
 	Reservations () : first(nullptr), last(nullptr), numbOfNodes(0) {}
+	
 	int addReservation(int newMemID, const std::string& hikeName);
 	void cancelReservation(int newReservationNumber);
-	void printReservation(int newReservationNumber, const HikeList& newHikeList, const MemberList& newMemberList) const;
+	
+	void printReservation(int newReservationNumber, const HikeList& newHikeList,
+			      const MemberList& newMemberList) const;
+	
 	void clearList();
-~Reservations();
+	~Reservations();
 
 private:
 

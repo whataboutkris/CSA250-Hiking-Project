@@ -12,10 +12,10 @@
 */
 
 #include "Interface.h"
+
 #include <string>
 #include <cstdlib>
 #include <iostream>
-
 using namespace std;
 
 void displayMenu()

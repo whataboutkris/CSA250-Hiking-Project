@@ -11,9 +11,10 @@
     Project: Hiking in the US
 */
 
+#include "Hike.h"
+
 #include <iostream>
 #include <string>
-#include "Hike.h"
 using namespace std;
 
 Hike::Hike(const string& newHikeLocation, const string& newHikeName,

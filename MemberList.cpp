@@ -13,11 +13,10 @@
 
 #include "MemberList.h"
 
+#include <iostream>
 #include <algorithm>
-#include <iterator>
-using namespace std;
 
-const int DEFAULT_ID = 111;
+using namespace std;
 
 MemberList::MemberList()
 {

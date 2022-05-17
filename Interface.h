@@ -18,8 +18,10 @@
 #include "MemberList.h"
 #include "Reservations.h"
 
+#include <string>
+
 void displayMenu();
-void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations);
+void processReservation(HikeList&, MemberList&, Reservations&);
 void chooseByLocation(HikeList&, MemberList&, Reservations&);
 void chooseByDuration(HikeList&, MemberList&, Reservations&);
 void chooseByDifficulty(HikeList&, MemberList&, Reservations&);

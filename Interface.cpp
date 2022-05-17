@@ -13,17 +13,16 @@
 
 #include "Interface.h"
 
-#include <string>
-#include <cstdlib>
 #include <iostream>
+
 using namespace std;
 
 void displayMenu()
 {
     cout << "***************************************************\n"
          << "                HIKING IN THE US\n"
-         << "***************************************************\n" << endl 
-         << "        1. Browse by location\n"
+         << "***************************************************\n" 
+         << "\n        1. Browse by location\n"
          << "        2. Browse by duration\n"
          << "        3. Browse by difficulty\n"
          << "        4. Browse by price\n"
@@ -36,7 +35,7 @@ void displayMenu()
 void processReservation(HikeList& hikeList, MemberList& memberList, Reservations& reservations)
 {
     cout << "Please make a selection: ";
-    int input;
+    int input = 0;
     cin >> input;
     cout << endl;
     while (input != 8) {
@@ -74,7 +73,7 @@ void processReservation(HikeList& hikeList, MemberList& memberList, Reservations
 void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
     myHikeList.printAllLocations();
     cout << "\nChoose a location: ";
-    string input;
+    string input = "";
     cin >> input;
     cout << endl;
     myHikeList.printByLocation(input);
@@ -82,10 +81,10 @@ void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservatio
 }
 
 void chooseByDuration(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
-    cout << "       (days)" << endl;
+    cout << "        (days)" << endl;
     myHikeList.printByDuration();
-    cout << "\n" << "How many days are you considering? ";
-    int input;
+    cout << "\nHow many days are you considering? ";
+    int input = 0;
     cin >> input;
     cout << endl;
     myHikeList.printByDuration(input);
@@ -98,9 +97,9 @@ void chooseByDifficulty(HikeList& myHikeList, MemberList& myMemberList, Reservat
          << "        m. moderate\n"
          << "        s. strenous\n"
          << "\nYour choice: ";
-    char input;
+    char input = ' ';
     cin >> input;
-    cout << endl << endl;
+    cout << endl;
     myHikeList.printByDifficulty(input);
     askToReserve(myHikeList, myMemberList, myReservations);
 }
@@ -110,10 +109,54 @@ void chooseByPrice(HikeList& myHikeList, MemberList& myMemberList, Reservations&
     askToReserve(myHikeList, myMemberList, myReservations);
 }
 
+int askIfMember(MemberList& myMemberList) {
+    cout << "\nAre you a member? (y/n) ";
+    char memberInput = ' ';
+    cin >> memberInput;
+    cout << endl;
+
+    if (memberInput == 'y') {
+        cout << "What is your member ID number? ";
+        int idInput = 0;
+        cin >> idInput;
+        cout << endl;
+
+        cout << "What is your last name? ";
+        string lastNameInput = "";
+        cin >> lastNameInput;
+        cout << endl;
+
+        myMemberList.printMember(idInput, lastNameInput);
+        return idInput;
+    }
+    else {
+        addNewMember(myMemberList);
+        return myMemberList.getLastID();
+    }
+    return 0;
+}
+int addNewMember(MemberList& myMemberList)
+{
+    string fName, lName = "";
+    cout << "\n        Let's add you to the member list!\n"
+        << "                What is your first name? ";
+    cin >> fName;
+    cout << "\n                What is your last name? ";
+    cin >> lName;
+    cout << endl << endl;
+
+    myMemberList.addMember(fName, lName);
+
+    cout << "        Welcome to the club!\n"
+        << "                Your member ID number is: " << myMemberList.getLastID() << endl;
+
+    return myMemberList.getLastID();
+}
+
 void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
     int id = askIfMember(myMemberList);
     cout << "Which hike would you like to reserve (hike name)? ";
-    string hikeInput;
+    string hikeInput = "";
     cin >> hikeInput;
     cout << endl;
     myHikeList.printByHikeName(hikeInput);
@@ -144,7 +187,7 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
     myReservations.printReservation(reservationInput, myHikeList, myMemberList);
 
     cout << "\nAre you sure you want to cancel this reservation? (y/n) " ;
-    char reservationInputChar;
+    char reservationInputChar = ' ';
     cin >> reservationInputChar;
     if (reservationInputChar == 'y') 
     {
@@ -153,52 +196,9 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
     }
 }
 
-int askIfMember(MemberList& myMemberList) {
-    cout << "\nAre you a member? (y/n) ";
-    char memberInput;
-    cin >> memberInput;
-    cout << endl;
-
-    if (memberInput == 'y') {
-        cout << "What is your member ID number? ";
-        int idInput;
-        cin >> idInput;
-        cout << endl;
-
-        cout << "What is your last name? ";
-        string lastNameInput;
-        cin >> lastNameInput;
-        cout << endl;
-
-        myMemberList.printMember(idInput, lastNameInput); 
-        return idInput;
-    }
-    else {
-        addNewMember(myMemberList);
-        return myMemberList.getLastID();
-    }
-    return 0;
-}
-int addNewMember(MemberList& myMemberList) 
-{
-    string fName, lName;
-    cout << "\n        Let's add you to the member list!\n"
-        << "                What is your first name? ";
-    cin >> fName;
-    cout << "\n                What is your last name? ";
-    cin >> lName;
-    cout << endl << endl;
-
-    myMemberList.addMember(fName, lName);
-
-    cout << "        Welcome to the club!\n"
-        << "                Your member ID number is: " << myMemberList.getLastID() << endl;
-
-    return myMemberList.getLastID();
-}
-void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {  
+void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) {
     cout << "\nWould you like to make a reservation? (y/n) ";
-    char reservationInput;
+    char reservationInput = ' ';
     cin >> reservationInput;
     if (reservationInput == 'y') {
         makeReservation(myHikeList, myMemberList, myReservations);

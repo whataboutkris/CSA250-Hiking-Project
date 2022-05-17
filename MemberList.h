@@ -14,8 +14,10 @@
 #ifndef MEMBERLIST_H
 #define MEMBERLIST_H
 
-#include "Member.h"
+#include <string>
 #include <set>
+
+const int DEFAULT_ID = 111;
 
 class MemberList
 {

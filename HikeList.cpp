@@ -87,7 +87,7 @@ void HikeList::printByDuration(int days) const
 void HikeList::printByDifficulty(char hikeDifficulty) const
 {
     Hike hike;
-    cout << "  (difficulty level)\n";
+    cout << "        (difficulty level)\n";
     for (auto& i : aMap)
         cout << "        (" << hikeDifficulty << ") " << i.first.getHikeName() << ", " <<
         i.first.getLocation() << endl;

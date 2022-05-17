@@ -13,11 +13,10 @@
 
 #include "MemberList.h"
 
+#include <iostream>
 #include <algorithm>
-#include <iterator>
-using namespace std;
 
-const int DEFAULT_ID = 111;
+using namespace std;
 
 MemberList::MemberList()
 {
@@ -60,8 +59,7 @@ void MemberList::addMember(const string& newFirstName, const string& newLastName
 
 int MemberList::getLastID() const
 {
-    auto lastMember = memberList->rbegin();
-    return lastMember->getID();
+    return memberList->rbegin()->getID();
 }
 
 int MemberList::getPoints(int id) const
@@ -89,4 +87,3 @@ MemberList::~MemberList()
     delete memberList;
     memberList = nullptr;
 }
-

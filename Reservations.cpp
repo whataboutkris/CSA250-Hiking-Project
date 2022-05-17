@@ -91,7 +91,7 @@ Node* Reservations::findReservation(int newReservation) const
     return current;
 }
 
-void Reservations::clearList()
+void Reservations::clearReservation()
 {
     Node* temp = first;
     while (first != nullptr)

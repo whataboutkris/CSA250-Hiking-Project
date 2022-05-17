@@ -59,7 +59,7 @@ public:
 	void printReservation(int newReservationNumber, const HikeList& newHikeList,
 			      const MemberList& newMemberList) const;
 	
-	void clearList();
+	void clearReservation();
 	~Reservations();
 
 private:
@@ -69,5 +69,4 @@ private:
 	Node *last;
 	int numbOfNodes;
 };
-
 #endif

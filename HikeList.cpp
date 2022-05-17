@@ -54,7 +54,7 @@ void HikeList::printByLocation(const string& hikeLocation) const {
     while (byLocation != iterEnd)
     {
         cout << "         " << byLocation->first;
-        cout << "         Price: (per person): $ " << byLocation->second << endl;   //where is diff and duration printed here??
+        cout << "           Price: (per person): $ " << byLocation->second << endl; 
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
             (const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
@@ -67,7 +67,7 @@ void HikeList::printByDuration() const
     auto iterEnd = aMap.end();
     for (iter; iter != iterEnd; ++iter)
         myMultiMap.insert(pair<int, string>(iter->first.getDuration(), iter->first.getLocation()));  
-    for_each(myMultiMap.begin(), myMultiMap.end(), [](auto& h) {cout << "(" << h.first << ") " << h.second << endl;});
+    for_each(myMultiMap.begin(), myMultiMap.end(), [](auto& h) {cout << "        (" << h.first << ") " << h.second << endl;});
 }
 
 void HikeList::printByDuration(int days) const{
@@ -82,10 +82,10 @@ void HikeList::printByDuration(int days) const{
 void HikeList::printByDifficulty(char hikeDifficulty) const
 {
     Hike hike;
-    cout << "        (difficulty level)\n";
+    cout << "  (difficulty level)\n";
     for (auto& i : aMap)
-        cout << "        (" << hikeDifficulty << ") " << hike.getHikeName() << ", " <<
-        hike.getLocation() << endl;
+        cout << "        (" << hikeDifficulty << ") " << i.first.getHikeName() << ", " <<
+        i.first.getLocation() << endl;
 }
 
 void HikeList::printByPrice() const

@@ -27,8 +27,8 @@ Hike::Hike(const string& newHikeLocation, const string& newHikeName,
 
     ostream& operator<<(ostream& out, const Hike& hike) {
     out << hike.hikeName << " (" << hike.hikeLocation << ")" << endl;
-    out << "    Difficulty: " << hike.hikeDifficulty << endl;
-    out << "    Duration: " << hike.hikeDuration << " day(s)" << endl;
+    out << "           Difficulty: " << hike.hikeDifficulty << endl;
+    out << "           Duration: " << hike.hikeDuration << " day(s)" << endl;
     return out;
 }
 

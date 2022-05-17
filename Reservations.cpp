@@ -38,6 +38,7 @@ void Reservations::cancelReservation(int newReservationNumber)
 {
     if (numbOfNodes == 1)
     {
+        Node temp;
         delete first;
         first = last = nullptr;
     }
@@ -58,8 +59,8 @@ void Reservations::printReservation(int newReservationNumber,
     Node* printer = findReservation(newReservationNumber);
     newHikeList.printByHikeName(printer->getHikeName());
     
-    cout << "\n       Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
-        - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
+    cout << "\n         Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
+        - (newMemberList.getPoints(printer->getMembID()) / 100) << endl << endl;
 }
 
 void Reservations::clearList()

@@ -48,15 +48,31 @@ int Reservations::addReservation(int newMemID, const string& hikeName)
 
 void Reservations::cancelReservation(int newReservationNumber)
 {
+    Node* toDelete = findReservation(newReservationNumber);
     if (numbOfNodes == 1)
     {
         Node temp;
         delete first;
         first = last = nullptr;
     }
-    else
+    else if (first == toDelete)
     {
-        Node* toDelete = findReservation(newReservationNumber);
+
+        delete toDelete;
+        toDelete = nullptr;
+        first = last;
+        last->setPrev(nullptr);
+    }
+    else if (last == toDelete)
+    {
+        delete toDelete;
+        toDelete = nullptr;
+        last = first;
+        first->setNext(nullptr);
+    }
+    else 
+    {
+        
         toDelete->getPrev()->setNext(toDelete->getNext());
         toDelete->getNext()->setPrev(toDelete->getPrev());
         delete toDelete;

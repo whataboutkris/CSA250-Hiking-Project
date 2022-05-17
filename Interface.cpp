@@ -149,7 +149,7 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
     if (reservationInputChar == 'y') 
     {
         myReservations.cancelReservation(reservationInput);
-        cout << "\n\nReservation #" << reservationInput << " has been canceled.";
+        cout << "\n\nReservation #" << reservationInput << " has been canceled.\n";
     }
 }
 

@@ -48,7 +48,8 @@ void HikeList::printAllLocations() const
     }
 }
 
-void HikeList::printByLocation(const string& hikeLocation) const {
+void HikeList::printByLocation(const string& hikeLocation) const 
+{
     auto iterEnd = aMap.end();
     auto byLocation = find_if(aMap.begin(), iterEnd, [&hikeLocation] 
         (const auto& h) {return h.first.getLocation() == hikeLocation;});
@@ -71,7 +72,8 @@ void HikeList::printByDuration() const
     for_each(myMultiMap.begin(), myMultiMap.end(), [](auto& h) {cout << "        (" << h.first << ") " << h.second << endl;});
 }
 
-void HikeList::printByDuration(int days) const{
+void HikeList::printByDuration(int days) const
+{
     for (auto& i : aMap)
         if (i.first.getDuration() == days) {
             cout << "        " << i.first.getHikeName() << " (" << i.first.getLocation() << ")" << endl

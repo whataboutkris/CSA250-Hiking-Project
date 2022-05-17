@@ -16,6 +16,7 @@
 
 #include <string>
 #include <set>
+#include "Member.h"
 
 const int DEFAULT_ID = 111;
 

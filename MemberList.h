@@ -17,7 +17,7 @@
 #include <string>
 #include <set>
 
-const int firstID = 111;
+const int DEFAULT_ID = 111;
 
 class MemberList
 {

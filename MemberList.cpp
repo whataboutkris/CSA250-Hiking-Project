@@ -12,9 +12,9 @@
 */
 
 #include "MemberList.h"
+
 #include <algorithm>
 #include <iterator>
-
 using namespace std;
 
 const int DEFAULT_ID = 111;

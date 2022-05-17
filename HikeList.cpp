@@ -11,10 +11,11 @@
     Project: Hiking in the US
 */
 
+#include "HikeList.h"
+
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
-#include "HikeList.h"
 using namespace std;
 
 void HikeList::addHike(const Hike& hike, double hikePrice)

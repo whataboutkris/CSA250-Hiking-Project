@@ -11,14 +11,13 @@
 	Project: Hiking in the US
 */
 
-#include<iostream>
-#include<string>
 #include "Interface.h"
 #include "HikeReader.h"
 #include "MemberReader.h"
 #include "ReservationReader.h"
 
-
+#include<iostream>
+#include<string>
 using namespace std;
 
 int main()

@@ -17,7 +17,6 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-
 using namespace std;
 
 const string MEMBERS_FILE = "members_database.txt";

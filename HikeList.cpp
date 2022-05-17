@@ -18,6 +18,8 @@
 #include <algorithm>
 using namespace std;
 
+HikeList::HikeList() {}
+
 void HikeList::addHike(const Hike& hike, double hikePrice)
 {
     aMap.insert(make_pair(hike, hikePrice));
@@ -121,3 +123,5 @@ void HikeList::clearList()
 {
     aMap.clear();
 }
+
+HikeList::~HikeList() {}

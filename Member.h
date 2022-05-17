@@ -19,21 +19,19 @@
 class Member
 {
 public:
-	Member() : id(0), points(0) {};
-
+	Member() : id(0), points(0), fName(), lName() {};
 	Member(const std::string&, const std::string&);
 
 	void addPoints(int);
-
 	void setID(const int&);
 
 	int getID() const;
 	std::string getLName() const;
 	int getPoints() const;
+	
+	bool operator<(const Member&) const;
 
 	void printMember() const;
-
-	bool operator<(const Member&) const;
 
 	~Member() {}
 

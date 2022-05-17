@@ -13,8 +13,6 @@
 
 #include "Hike.h"
 
-#include <iostream>
-#include <string>
 using namespace std;
 
 Hike::Hike(const string& newHikeLocation, const string& newHikeName,
@@ -26,10 +24,10 @@ Hike::Hike(const string& newHikeLocation, const string& newHikeName,
     hikeDifficulty = newHikeDifficulty;
 }
 
-    ostream& operator<<(ostream& out, const Hike& hike) {
-    out << hike.hikeName << " (" << hike.hikeLocation << ")" << endl;
-    out << "           Difficulty: " << hike.hikeDifficulty << endl;
-    out << "           Duration: " << hike.hikeDuration << " day(s)" << endl;
+    ostream& operator<<(ostream& out, const Hike& myHike) {
+    out << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
+    out << "           Difficulty: " << myHike.hikeDifficulty << endl;
+    out << "           Duration: " << myHike.hikeDuration << " day(s)" << endl;
     return out;
 }
 
@@ -49,9 +47,9 @@ string Hike::getHikeName() const {
     return hikeName;
 }
 
-bool Hike::operator<(const Hike& paramObj) const
+bool Hike::operator<(const Hike& myHike) const
 {
-    return hikeLocation < paramObj.hikeLocation;
+    return hikeLocation < myHike.hikeLocation;
 }
 
 Hike::~Hike() {}

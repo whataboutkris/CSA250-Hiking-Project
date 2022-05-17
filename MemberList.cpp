@@ -59,8 +59,7 @@ void MemberList::addMember(const string& newFirstName, const string& newLastName
 
 int MemberList::getLastID() const
 {
-    auto lastMember = memberList->rbegin();
-    return lastMember->getID();
+    return memberList->rbegin()->getID();
 }
 
 int MemberList::getPoints(int id) const
@@ -88,4 +87,3 @@ MemberList::~MemberList()
     delete memberList;
     memberList = nullptr;
 }
-

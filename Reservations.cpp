@@ -71,13 +71,15 @@ void Reservations::printReservation(int newReservationNumber,
         const HikeList& newHikeList, const MemberList& newMemberList) const
 {
     Node* printer = findReservation(newReservationNumber);
-    newHikeList.printByHikeName(printer->getHikeName());
+    if(printer != nullptr)
+    {
+        newHikeList.printByHikeName(printer->getHikeName());
     
     cout << "\n         Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
         - (newMemberList.getPoints(printer->getMembID()) / 100) << endl << endl;
-
-    delete printer;
-    printer = nullptr;
+    }
+    else
+        cerr << "This reservation does not exits.";
 }
 
 Node* Reservations::findReservation(int newReservation) const
@@ -106,12 +108,5 @@ void Reservations::clearList()
 
 Reservations::~Reservations()
 {
-    Node *current = first;
-    while(current != nullptr)
-    {
-        Node *temp = current->getNext();
-        delete current;
-        current = temp;
-    }
-    first = last = nullptr;
+    Reservations.clearList();
 }

@@ -23,7 +23,7 @@ const string RESERVATIONS_FILE = "reservations_database.txt";
 
 void createReservations(ifstream& infile, Reservations& reservations)
 {
-	int memberID;
+	int memberID = 0;
 	string hikeName;
 
 	while (!infile.eof())

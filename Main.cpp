@@ -16,10 +16,6 @@
 #include "MemberReader.h"
 #include "ReservationReader.h"
 
-#include<iostream>
-#include<string>
-using namespace std;
-
 int main()
 {
 	

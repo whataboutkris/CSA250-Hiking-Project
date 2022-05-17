@@ -14,20 +14,8 @@
 #include "Reservations.h"
 
 #include <iostream>
-#include <string>
+
 using namespace std;
-
-Node* Reservations::findReservation(int newReservation) const
-{
-    Node* current = first;
-    
-    while ( current->getreservationNumber() != newReservation)
-    {
-        current = current->getNext();
-    }
-    return current;
-}
-
 
 int Reservations::addReservation(int newMemID, const string& hikeName)
 {
@@ -49,15 +37,14 @@ int Reservations::addReservation(int newMemID, const string& hikeName)
 void Reservations::cancelReservation(int newReservationNumber)
 {
     Node* toDelete = findReservation(newReservationNumber);
+
     if (numbOfNodes == 1)
     {
-        Node temp;
         delete first;
         first = last = nullptr;
     }
     else if (first == toDelete)
     {
-
         delete toDelete;
         toDelete = nullptr;
         first = last;
@@ -72,7 +59,6 @@ void Reservations::cancelReservation(int newReservationNumber)
     }
     else 
     {
-        
         toDelete->getPrev()->setNext(toDelete->getNext());
         toDelete->getNext()->setPrev(toDelete->getPrev());
         delete toDelete;
@@ -85,10 +71,26 @@ void Reservations::printReservation(int newReservationNumber,
         const HikeList& newHikeList, const MemberList& newMemberList) const
 {
     Node* printer = findReservation(newReservationNumber);
-    newHikeList.printByHikeName(printer->getHikeName());
+    if(printer != nullptr)
+    {
+        newHikeList.printByHikeName(printer->getHikeName());
     
     cout << "\n         Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
         - (newMemberList.getPoints(printer->getMembID()) / 100) << endl << endl;
+    }
+    else
+        cerr << "This reservation does not exits.";
+}
+
+Node* Reservations::findReservation(int newReservation) const
+{
+    Node* current = first;
+
+    while (current->getreservationNumber() != newReservation)
+    {
+        current = current->getNext();
+    }
+    return current;
 }
 
 void Reservations::clearList()
@@ -106,12 +108,5 @@ void Reservations::clearList()
 
 Reservations::~Reservations()
 {
-    Node *current = first;
-    while(current != nullptr)
-    {
-        Node *temp = current->getNext();
-        delete current;
-        current = temp;
-    }
-    first = last = nullptr;
+    Reservations.clearList();
 }

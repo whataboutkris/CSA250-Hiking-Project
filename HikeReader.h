@@ -45,7 +45,7 @@ void getHikeData(HikeList& hikeList)
 	if (!infile)
 	{
 		cerr << HIKES_FILE << " does not exist." << endl;
-		exit(1); // terminates program
+		exit(1);
 	}
 
 	createHikeList(infile, hikeList);

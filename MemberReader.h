@@ -25,7 +25,7 @@ void createMemberList(ifstream& infile, MemberList& memberList)
 {
     string firstName,
            lastName;
-    int points;
+    int points = 0;
 
     while (!infile.eof())
     {

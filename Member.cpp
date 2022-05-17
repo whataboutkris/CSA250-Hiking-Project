@@ -52,9 +52,9 @@ int Member::getPoints() const
 void Member::printMember() const
 {
 	
-	cout << endl << "       " << lName << ", " << fName << "\n"
-		<< "       Points available: " << points << "\n"
-		<< "       Membership # " << id << endl;
+	cout << "        " << lName << ", " << fName << "\n"
+		<< "        Points available: " << points << "\n"
+		<< "        Membership # " << id << endl << endl;
 }
 
 bool Member::operator<(const Member& paramObj) const

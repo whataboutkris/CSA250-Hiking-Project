@@ -54,7 +54,7 @@ void HikeList::printByLocation(const string& hikeLocation) const {
     while (byLocation != iterEnd)
     {
         cout << "         " << byLocation->first;
-        cout << "         Price: (per person): $ " << byLocation->second << endl << endl;   //where is diff and duration printed here??
+        cout << "         Price: (per person): $ " << byLocation->second << endl;   //where is diff and duration printed here??
         byLocation = find_if(++byLocation, iterEnd, [&hikeLocation]
             (const auto& h) {return h.first.getLocation() == hikeLocation; });
     }
@@ -73,17 +73,18 @@ void HikeList::printByDuration() const
 void HikeList::printByDuration(int days) const{
     for (auto& i : aMap)
         if (i.first.getDuration() == days) {
-            cout << i.first.getHikeName() << " (" << i.first.getLocation() << ")" << endl
-                << "Difficulty: " << i.first.getDifficulty() << endl
-                << "Duration: " << i.first.getDuration() << endl;
+            cout << "        " << i.first.getHikeName() << " (" << i.first.getLocation() << ")" << endl
+                << "          Difficulty: " << i.first.getDifficulty() << endl
+                << "          Duration: " << i.first.getDuration() << endl;
         }
 }
 
 void HikeList::printByDifficulty(char hikeDifficulty) const
 {
     Hike hike;
+    cout << "        (difficulty level)\n";
     for (auto& i : aMap)
-        cout << "(" << hikeDifficulty << ") " << hike.getHikeName() << ", " <<
+        cout << "        (" << hikeDifficulty << ") " << hike.getHikeName() << ", " <<
         hike.getLocation() << endl;
 }
 
@@ -98,8 +99,8 @@ void HikeList::printByPrice() const
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "$ " << i.first << " - " << i.second.first << " (" <<
-            i.second.second << ")\n";
+        cout << "        $ " << i.first << " - " << i.second.first << " (" <<
+            i.second.second << ")" << endl;
 }
 
 void HikeList::printByHikeName(const string& hikeName) const

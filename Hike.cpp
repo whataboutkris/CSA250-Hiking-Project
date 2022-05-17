@@ -53,3 +53,5 @@ bool Hike::operator<(const Hike& paramObj) const
 {
     return hikeLocation < paramObj.hikeLocation;
 }
+
+Hike::~Hike() {}

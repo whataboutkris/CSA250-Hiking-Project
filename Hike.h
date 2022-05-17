@@ -10,32 +10,33 @@
     CS A250 - C++ 2
     Project: Hiking in the US
 */
-    
+  
 #ifndef HIKE_H
 #define HIKE_H
+
 #include <iostream>
 #include <string>
 
 class Hike 
 {
-    friend std::ostream& operator<<(std::ostream& out, const Hike& hike);
+    friend std::ostream& operator<<(std::ostream& out, const Hike& myHike);
 public:
     Hike() : hikeDifficulty('e'), hikeDuration(0) {}
         Hike(const std::string& newHikeLocation, const std::string& newHikeName,
             int newDurationHike, char newHikeDifficulty);
+
     std::string getLocation () const;
     int getDuration() const;
     char getDifficulty() const;
     std::string getHikeName() const;
-    bool operator<(const Hike&) const;
 
+    bool operator<(const Hike& myHike) const;
+
+    ~Hike();
 private:
     char hikeDifficulty;
     std::string hikeLocation;
     std::string hikeName;
     int hikeDuration;
 };
-
-
-
 #endif

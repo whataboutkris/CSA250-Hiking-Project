@@ -14,6 +14,8 @@
 #include "Member.h"
 
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 Member::Member(const string& newFName, const string& newLName)
@@ -49,15 +51,15 @@ int Member::getPoints() const
 	return points;
 }
 
+bool Member::operator<(const Member& paramObj) const
+{
+	return id < paramObj.id;
+}
+
 void Member::printMember() const
 {
 	
 	cout << "        " << lName << ", " << fName << "\n"
 		<< "        Points available: " << points << "\n"
 		<< "        Membership # " << id << endl << endl;
-}
-
-bool Member::operator<(const Member& paramObj) const
-{
-	return id < paramObj.id;
 }

@@ -108,5 +108,5 @@ void Reservations::clearReservation()
 
 Reservations::~Reservations()
 {
-    Reservations.clearList();
+    clearReservation();
 }

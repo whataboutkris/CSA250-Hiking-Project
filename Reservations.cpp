@@ -45,17 +45,17 @@ void Reservations::cancelReservation(int newReservationNumber)
     }
     else if (first == toDelete)
     {
+        first = first->getNext();
+        first->setPrev(nullptr);
         delete toDelete;
         toDelete = nullptr;
-        first = last;
-        last->setPrev(nullptr);
     }
     else if (last == toDelete)
     {
+        last = last->getPrev();
+        last->setNext(nullptr);
         delete toDelete;
         toDelete = nullptr;
-        last = first;
-        first->setNext(nullptr);
     }
     else 
     {
@@ -74,12 +74,19 @@ void Reservations::printReservation(int newReservationNumber,
     if(printer != nullptr)
     {
         newHikeList.printByHikeName(printer->getHikeName());
-    
-    cout << "\n         Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
-        - (newMemberList.getPoints(printer->getMembID()) / 100) << endl << endl;
+        
+        if (newMemberList.getPoints(printer->getMembID()))
+        {
+            cout << "\n\n         Discounted price using points: $ " << newHikeList.getPrice(printer->getHikeName())
+                - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
+        }
+        else
+        {
+            cout << endl;
+        }
     }
     else
-        cerr << "This reservation does not exits.";
+        cerr << "This reservation does not exits." << endl;
 }
 
 Node* Reservations::findReservation(int newReservation) const
@@ -89,7 +96,12 @@ Node* Reservations::findReservation(int newReservation) const
     while (current->getreservationNumber() != newReservation)
     {
         current = current->getNext();
+        if (current == nullptr)
+        {
+            return current;
+        }
     }
+   
     return current;
 }
 

@@ -24,10 +24,25 @@ Hike::Hike(const string& newHikeLocation, const string& newHikeName,
     hikeDifficulty = newHikeDifficulty;
 }
 
-    ostream& operator<<(ostream& out, const Hike& myHike) {
-    out << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
-    out << "           Difficulty: " << myHike.hikeDifficulty << endl;
+ostream& operator<<(ostream& out, const Hike& myHike) {
+    out << "        " << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
+
+    if (myHike.hikeDifficulty == 'e')
+    {
+        out << "           Difficulty: easy" << endl;
+            
+    }
+    else if (myHike.hikeDifficulty == 'm')
+    {
+        out << "           Difficulty: moderate" << endl;
+    }
+    else
+    {
+        out << "           Difficulty: strenous" << endl;
+    }
+
     out << "           Duration: " << myHike.hikeDuration << " day(s)" << endl;
+
     return out;
 }
 

@@ -73,7 +73,7 @@ void processReservation(HikeList& hikeList, MemberList& memberList, Reservations
         displayMenu();
         cout << "Please make a selection: ";
         cin >> input;
-        cout << endl << endl;
+        cout << endl;
     }
     cout << "Thank you for visiting!" << endl;
 }
@@ -153,18 +153,18 @@ int askIfMember(MemberList& myMemberList)
 
 int addNewMember(MemberList& myMemberList)
 {
-    string fName, lName = "";
-    cout << "\n        Let's add you to the member list!\n"
+    string fName, lName;
+    cout << "        Let's add you to the member list!\n"
         << "                What is your first name? ";
     cin >> fName;
-    cout << "\n                What is your last name? ";
+    cout << "                What is your last name? ";
     cin >> lName;
-    cout << endl << endl;
+    cout << endl;
 
     myMemberList.addMember(fName, lName);
 
     cout << "        Welcome to the club!\n"
-        << "                Your member ID number is: " << myMemberList.getLastID() << endl;
+        << "                Your member ID number is: " << myMemberList.getLastID() << endl << endl;
 
     return myMemberList.getLastID();
 }
@@ -173,13 +173,21 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
 {
     int id = askIfMember(myMemberList);
     cout << "Which hike would you like to reserve (hike name)? ";
-    string hikeInput = "";
+    string hikeInput;
     cin >> hikeInput;
     cout << endl;
     myHikeList.printByHikeName(hikeInput);
-    cout << "\n         Discounted price using points: $" << myHikeList.getPrice(hikeInput)
-        - (myMemberList.getPoints(id) / 100) << endl << endl;
     
+    if (myMemberList.getPoints(id))
+    {
+        cout << "\n\n         Discounted price using points: $" << myHikeList.getPrice(hikeInput)
+            - (myMemberList.getPoints(id) / 100) << endl << endl;
+    }
+    else
+    {
+        cout << endl << endl;
+    }
+
     cout << "         Before proceeding, please make note of your reservation number." << endl;
     cout << "           Reservation #: " << myReservations.addReservation(id, hikeInput) << endl << endl;
     cout << "( *** Will continue to scheduling and payment. *** )" << endl << endl;
@@ -191,8 +199,9 @@ void viewReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
     cout << "Enter reservation #: ";
     int reservationInput(0);
     cin >> reservationInput;
-    cout << endl << endl;
+    cout << endl;
     myReservations.printReservation(reservationInput, myHikeList, myMemberList);
+    cout << endl;
 }
 
 void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations)
@@ -200,22 +209,23 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
     cout << "Enter reservation #: ";
     int reservationInput(0);
     cin >> reservationInput;
-    cout << endl << endl;
+    cout << endl;
     myReservations.printReservation(reservationInput, myHikeList, myMemberList);
 
     cout << "\nAre you sure you want to cancel this reservation? (y/n) " ;
     char reservationInputChar = ' ';
     cin >> reservationInputChar;
+    //cout << endl;
     if (reservationInputChar == 'y') 
     {
         myReservations.cancelReservation(reservationInput);
-        cout << "\n\nReservation #" << reservationInput << " has been canceled.\n";
+        cout << "\nReservation #" << reservationInput << " has been canceled.\n\n";
     }
 }
 
 void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) 
 {
-    cout << "\nWould you like to make a reservation? (y/n) ";
+    cout << "Would you like to make a reservation? (y/n) ";
     char reservationInput = ' ';
     cin >> reservationInput;
     if (reservationInput == 'y')

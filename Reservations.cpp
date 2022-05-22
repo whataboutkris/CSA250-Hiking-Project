@@ -86,7 +86,7 @@ void Reservations::printReservation(int newReservationNumber,
         }
     }
     else
-        cerr << "This reservation does not exits." << endl;
+        cerr << "This reservation does not exist." << endl;
 }
 
 Node* Reservations::findReservation(int newReservation) const

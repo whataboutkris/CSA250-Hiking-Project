@@ -20,19 +20,19 @@ ostream& operator<<(ostream& out, const Hike& myHike) {
 
     if (myHike.hikeDifficulty == 'e')
     {
-        out << "           Difficulty: easy" << endl;
+        out << "          Difficulty: easy" << endl;
 
     }
     else if (myHike.hikeDifficulty == 'm')
     {
-        out << "           Difficulty: moderate" << endl;
+        out << "          Difficulty: moderate" << endl;
     }
     else
     {
-        out << "           Difficulty: strenous" << endl;
+        out << "          Difficulty: strenous" << endl;
     }
 
-    out << "           Duration: " << myHike.hikeDuration << " day(s)" << endl;
+    out << "          Duration: " << myHike.hikeDuration << " day(s)" << endl;
 
     return out;
 }

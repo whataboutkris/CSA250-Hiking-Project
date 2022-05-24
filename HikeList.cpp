@@ -60,7 +60,7 @@ void HikeList::printByLocation(const string& hikeLocation) const
     while (iterByLocation != iterEnd && hikeLocation == iterByLocation->first.getLocation())
     {
         cout << iterByLocation->first;
-        cout << "           Price: (per person): $ " << iterByLocation->second << endl << endl;
+        cout << "          Price: (per person): $ " << iterByLocation->second << endl << endl;
         ++iterByLocation;
     }
 }
@@ -122,7 +122,7 @@ void HikeList::printByHikeName(const string& hikeName) const
         [&hikeName](const auto& h) {return h.first.getHikeName() == hikeName;});       
 
     cout << fixed << showpoint << setprecision(2);
-    cout << it->first << "           $" << it->second;
+    cout << it->first << "          $" << it->second;
 }
 
 void HikeList::clearList()

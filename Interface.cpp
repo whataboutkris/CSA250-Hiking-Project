@@ -85,7 +85,7 @@ void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservatio
     string input = "";
     cin >> input;
     cout << endl;
-    myHikeList.printByLocation(input);
+    myHikeList.printByLocation(input);  
     askToReserve(myHikeList, myMemberList, myReservations);
 }
 
@@ -123,7 +123,7 @@ void chooseByPrice(HikeList& myHikeList, MemberList& myMemberList, Reservations&
 
 int askIfMember(MemberList& myMemberList) 
 {
-    cout << "\nAre you a member? (y/n) ";
+    cout << "Are you a member? (y/n) ";
     char memberInput = ' ';
     cin >> memberInput;
     cout << endl;
@@ -189,7 +189,7 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
     }
 
     cout << "         Before proceeding, please make note of your reservation number." << endl;
-    cout << "           Reservation #: " << myReservations.addReservation(id, hikeInput) << endl << endl;
+    cout << "          Reservation #: " << myReservations.addReservation(id, hikeInput) << endl << endl;
     cout << "( *** Will continue to scheduling and payment. *** )" << endl << endl;
 
 }
@@ -212,10 +212,10 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList, Reservati
     cout << endl;
     myReservations.printReservation(reservationInput, myHikeList, myMemberList);
 
-    cout << "\nAre you sure you want to cancel this reservation? (y/n) " ;
+    cout << "\nAre you sure you want to cancel this reservation? (y/n) ";
     char reservationInputChar = ' ';
     cin >> reservationInputChar;
-    //cout << endl;
+    cout << "\n";
     if (reservationInputChar == 'y') 
     {
         myReservations.cancelReservation(reservationInput);

@@ -15,22 +15,13 @@
 
 using namespace std;
 
-Hike::Hike(const string& newHikeLocation, const string& newHikeName,
-    int newDurationHike, char newHikeDifficulty) 
-{
-    hikeLocation = newHikeLocation;
-    hikeName = newHikeName;
-    hikeDuration = newDurationHike;
-    hikeDifficulty = newHikeDifficulty;
-}
-
 ostream& operator<<(ostream& out, const Hike& myHike) {
     out << "        " << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
 
     if (myHike.hikeDifficulty == 'e')
     {
         out << "           Difficulty: easy" << endl;
-            
+
     }
     else if (myHike.hikeDifficulty == 'm')
     {
@@ -44,6 +35,15 @@ ostream& operator<<(ostream& out, const Hike& myHike) {
     out << "           Duration: " << myHike.hikeDuration << " day(s)" << endl;
 
     return out;
+}
+
+Hike::Hike(const string& newHikeLocation, const string& newHikeName,
+    int newDurationHike, char newHikeDifficulty) 
+{
+    hikeLocation = newHikeLocation;
+    hikeName = newHikeName;
+    hikeDuration = newDurationHike;
+    hikeDifficulty = newHikeDifficulty;
 }
 
 string Hike::getLocation() const {

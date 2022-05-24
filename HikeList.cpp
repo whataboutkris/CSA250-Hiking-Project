@@ -111,8 +111,11 @@ void HikeList::printByPrice() const
     cout << fixed << showpoint << setprecision(2);
 
     for (auto& i : mymultimap)
-        cout << "        $ " << i.first << " - " << i.second.first << " (" <<
-            i.second.second << ")" << endl;
+    {
+        cout << "        $ ";
+        printf("%*.2f", 7, i.first);
+        cout << " - " << i.second.first << " (" << i.second.second << ")" << endl;
+    }
     cout << endl;
 }
 

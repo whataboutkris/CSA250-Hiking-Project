@@ -20,7 +20,7 @@ using namespace std;
 
 MemberList::MemberList()
 {
-	memberList = new set<Member>();
+	memberList = new set<Member>;
 }
 
 void MemberList::addMember(const string& newFirstName,
@@ -35,8 +35,6 @@ void MemberList::addMember(const string& newFirstName,
 	else
 	{
 		newMember.setID((memberList->rbegin()->getID()) + 1);
-		/*int idOffset = static_cast<int>(memberList->size());
-		newMember.setID(DEFAULT_ID + idOffset);*/
 	}
 	memberList->insert(newMember);
 }
@@ -54,8 +52,6 @@ void MemberList::addMember(const string& newFirstName,
 	else
 	{
 		newMember.setID((memberList->rbegin()->getID()) + 1);
-		//int idOffset = static_cast<int>(memberList->size());
-		//newMember.setID(DEFAULT_ID + idOffset);
 	}
 
 	memberList->insert(newMember);

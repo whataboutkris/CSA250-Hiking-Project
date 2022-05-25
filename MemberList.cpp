@@ -18,11 +18,6 @@
 
 using namespace std;
 
-MemberList::MemberList()
-{
-	memberList = new set<Member>;
-}
-
 void MemberList::addMember(const string& newFirstName,
 	const string& newLastName)
 {

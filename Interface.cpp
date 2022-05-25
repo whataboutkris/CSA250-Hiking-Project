@@ -85,7 +85,7 @@ void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservatio
 {
     myHikeList.printAllLocations();
     cout << "\nChoose a location: ";
-    string input = "";
+    string input;
     cin >> input;
     cout << endl;
     myHikeList.printByLocation(input);  

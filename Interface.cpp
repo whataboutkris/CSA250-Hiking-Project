@@ -94,7 +94,7 @@ void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservatio
 
 void chooseByDuration(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) 
 {
-    cout << "        (days)" << endl;
+    cout << "\t(days)" << endl;
     myHikeList.printByDuration();
     cout << "\nHow many days are you considering? ";
     int input = 0;
@@ -126,48 +126,43 @@ void chooseByPrice(HikeList& myHikeList, MemberList& myMemberList, Reservations&
 
 int askIfMember(MemberList& myMemberList) 
 {
-    cout << "Are you a member? (y/n) ";
+    cout << "\nAre you a member? (y/n) ";
     char memberInput = ' ';
     cin >> memberInput;
+    int idInput = 0;
     cout << endl;
-
-    if (memberInput == 'y') 
+    if (memberInput == 'y')
     {
         cout << "What is your member ID number? ";
-        int idInput = 0;
         cin >> idInput;
         cout << endl;
-
         cout << "What is your last name? ";
         string lastNameInput = "";
         cin >> lastNameInput;
         cout << endl;
-
         myMemberList.printMember(idInput, lastNameInput);
-        return idInput;
     }
-    else 
+    else
     {
-        addNewMember(myMemberList);
-        return myMemberList.getLastID();
+        idInput = addNewMember(myMemberList);
     }
-    return 0;
+    return idInput;
 }
 
 int addNewMember(MemberList& myMemberList)
 {
     string fName, lName;
-    cout << "        Let's add you to the member list!\n"
-        << "                What is your first name? ";
+    cout << " \tLet's add you to the member list!\n"
+        << "\t\tWhat is your first name? ";
     cin >> fName;
-    cout << "                What is your last name? ";
+    cout << "\t\tWhat is your last name? ";
     cin >> lName;
     cout << endl;
 
     myMemberList.addMember(fName, lName);
 
-    cout << "        Welcome to the club!\n"
-        << "                Your member ID number is: " << myMemberList.getLastID() << endl << endl;
+    cout << "\tWelcome to the club!\n"
+        << "\t\tYour member ID number is: " << myMemberList.getLastID() << endl << endl;
 
     return myMemberList.getLastID();
 }
@@ -181,9 +176,9 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
     cout << endl;
     myHikeList.printByHikeName(hikeInput);
     
-    if (myMemberList.getPoints(id))
+    if (myMemberList.getPoints(id) > 0)
     {
-        cout << "\n\n         Discounted price using points: $" << myHikeList.getPrice(hikeInput)
+        cout << "\n\n\tDiscounted price using points: $" << myHikeList.getPrice(hikeInput)
             - (myMemberList.getPoints(id) / 100) << endl << endl;
     }
     else
@@ -191,8 +186,8 @@ void makeReservation(HikeList& myHikeList, MemberList& myMemberList, Reservation
         cout << endl << endl;
     }
 
-    cout << "         Before proceeding, please make note of your reservation number." << endl;
-    cout << "          Reservation #: " << myReservations.addReservation(id, hikeInput) << endl << endl;
+    cout << "\tBefore proceeding, please make note of your reservation number." << endl;
+    cout << "\t Reservation #: " << myReservations.addReservation(id, hikeInput) << endl << endl;
     cout << "( *** Will continue to scheduling and payment. *** )" << endl << endl;
 
 }
@@ -234,9 +229,5 @@ void askToReserve(HikeList& myHikeList, MemberList& myMemberList, Reservations& 
     if (reservationInput == 'y')
     {
         makeReservation(myHikeList, myMemberList, myReservations);
-    }
-    else 
-    {
-        cout << "\n";
     }
 }

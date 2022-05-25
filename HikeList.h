@@ -40,7 +40,7 @@ public:
     void clearList();
     ~HikeList();
 private:
-    std::multimap<Hike, double> aMap;
+    std::multimap<Hike, double> hikeMap;
 };
 
 #endif

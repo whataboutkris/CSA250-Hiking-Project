@@ -64,8 +64,8 @@ int MemberList::getLastID() const
 
 int MemberList::getPoints(int id) const
 {
-    auto foundMember = find_if(memberList->begin(), memberList->end(), [id](const Member& a) {return a.getID() == id; });
-    return foundMember->getPoints();
+    auto memberIter = find_if(memberList->begin(), memberList->end(), [id](const Member& a) {return a.getID() == id; });
+    return memberIter->getPoints();
 }
 
 void MemberList::printMember(int id, const string& lName) const

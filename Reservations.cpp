@@ -79,16 +79,13 @@ void Reservations::printReservation(int newReservationNumber,
     {
         newHikeList.printByHikeName(printer->getHikeName());
         
-        if (newMemberList.getPoints(printer->getMembID()))
+        if (newMemberList.getPoints(printer->getMembID()) > 0)
         {
             cout << "\n\n         Discounted price using points: $ " 
                 << newHikeList.getPrice(printer->getHikeName())
                 - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
         }
-        else
-            cout << endl;
     }
-
     else
         cerr << "This reservation does not exist." << endl;
 }

@@ -16,23 +16,23 @@
 using namespace std;
 
 ostream& operator<<(ostream& out, const Hike& myHike) {
-    out << "        " << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
+    out << "\t" << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
 
     if (myHike.hikeDifficulty == 'e')
     {
-        out << "          Difficulty: easy" << endl;
+        out << "\t  Difficulty: easy" << endl;
 
     }
     else if (myHike.hikeDifficulty == 'm')
     {
-        out << "          Difficulty: moderate" << endl;
+        out << "\t  Difficulty: moderate" << endl;
     }
     else
     {
-        out << "          Difficulty: strenous" << endl;
+        out << "\t  Difficulty: strenous" << endl;
     }
 
-    out << "          Duration: " << myHike.hikeDuration << " day(s)" << endl;
+    out << "\t  Duration: " << myHike.hikeDuration << " day(s)" << endl;
 
     return out;
 }

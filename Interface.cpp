@@ -38,35 +38,39 @@ void processReservation(HikeList& hikeList, MemberList& memberList, Reservations
     int input = 0;
     cin >> input;
     cout << endl;
-    while (input != 8) 
+    while (input < 9)
     {
-        if (input == 1) 
+        if (input == 1)
         {
             chooseByLocation(hikeList, memberList, reservations);
         }
-        else if (input == 2) 
+        else if (input == 2)
         {
             chooseByDuration(hikeList, memberList, reservations);
         }
-        else if (input == 3) 
+        else if (input == 3)
         {
             chooseByDifficulty(hikeList, memberList, reservations);
         }
-        else if (input == 4) 
+        else if (input == 4)
         {
             chooseByPrice(hikeList, memberList, reservations);
         }
-        else if (input == 5) 
+        else if (input == 5)
         {
             makeReservation(hikeList, memberList, reservations);
         }
-        else if (input == 6) 
+        else if (input == 6)
         {
             viewReservation(hikeList, memberList, reservations);
         }
-        else if (input == 7) 
+        else if (input == 7)
         {
             cancelReservation(hikeList, memberList, reservations);
+        }
+        else if (input == 8) {
+            cout << "Thank you for visiting!" << endl;
+            break;
         }
         system("Pause");
         cout << endl << endl;
@@ -75,7 +79,6 @@ void processReservation(HikeList& hikeList, MemberList& memberList, Reservations
         cin >> input;
         cout << endl;
     }
-    cout << "Thank you for visiting!" << endl;
 }
 
 void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList, Reservations& myReservations) 

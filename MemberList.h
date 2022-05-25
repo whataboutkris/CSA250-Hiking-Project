@@ -23,7 +23,7 @@ const int DEFAULT_ID = 111;
 class MemberList
 {
 public:
-    MemberList();
+    MemberList() : memberList(new std::set<Member>){};
 
     void addMember(const std::string&, const std::string&);
     void addMember(const std::string&, const std::string&, int points);

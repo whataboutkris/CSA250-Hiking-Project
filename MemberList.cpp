@@ -34,8 +34,9 @@ void MemberList::addMember(const string& newFirstName,
 	}
 	else
 	{
-		int idOffset = static_cast<int>(memberList->size());
-		newMember.setID(DEFAULT_ID + idOffset);
+		newMember.setID((memberList->rbegin()->getID()) + 1);
+		/*int idOffset = static_cast<int>(memberList->size());
+		newMember.setID(DEFAULT_ID + idOffset);*/
 	}
 	memberList->insert(newMember);
 }
@@ -52,8 +53,9 @@ void MemberList::addMember(const string& newFirstName,
 	}
 	else
 	{
-		int idOffset = static_cast<int>(memberList->size());
-		newMember.setID(DEFAULT_ID + idOffset);
+		newMember.setID((memberList->rbegin()->getID()) + 1);
+		//int idOffset = static_cast<int>(memberList->size());
+		//newMember.setID(DEFAULT_ID + idOffset);
 	}
 
 	memberList->insert(newMember);
@@ -67,17 +69,17 @@ int MemberList::getLastID() const
 int MemberList::getPoints(int id) const
 {
 	auto memberIter = find_if(memberList->begin(), memberList->end(),
-		[id](const Member& a) {return a.getID() == id; });
+		[&id](const Member& a) {return a.getID() == id; });
 	return memberIter->getPoints();
 }
 
 void MemberList::printMember(int id, const string& lName) const
 {
-	auto foundMember = find_if(memberList->begin(), memberList->end(),
-		[id](const Member& a) {return a.getID() == id; });
-	if (foundMember->getLName() == lName)
+	auto foundMemberIter = find_if(memberList->begin(), memberList->end(),
+		[&id](const Member& a) {return a.getID() == id; });
+	if (foundMemberIter->getLName() == lName)
 	{
-		foundMember->Member::printMember();
+		foundMemberIter->Member::printMember();
 	}
 }
 

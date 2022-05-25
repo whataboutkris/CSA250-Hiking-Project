@@ -1,14 +1,14 @@
 /*
-    Cool Kids
+	Cool Kids
 
-    Losenara, Kristian
-    Kelley, Bobby
-    Lu, Vince
-    Chen, Amanda
+	Losenara, Kristian
+	Kelley, Bobby
+	Lu, Vince
+	Chen, Amanda
 
-    Spring 2022
-    CS A250 - C++ 2
-    Project: Hiking in the US
+	Spring 2022
+	CS A250 - C++ 2
+	Project: Hiking in the US
 */
 
 #include "Hike.h"
@@ -16,55 +16,56 @@
 using namespace std;
 
 ostream& operator<<(ostream& out, const Hike& myHike) {
-    out << "\t" << myHike.hikeName << " (" << myHike.hikeLocation << ")" << endl;
+	out << "\t" << myHike.hikeName << " (" << myHike.hikeLocation
+		<< ")" << endl;
 
-    if (myHike.hikeDifficulty == 'e')
-    {
-        out << "\t  Difficulty: easy" << endl;
+	if (myHike.hikeDifficulty == 'e')
+	{
+		out << "\t  Difficulty: easy" << endl;
 
-    }
-    else if (myHike.hikeDifficulty == 'm')
-    {
-        out << "\t  Difficulty: moderate" << endl;
-    }
-    else
-    {
-        out << "\t  Difficulty: strenous" << endl;
-    }
+	}
+	else if (myHike.hikeDifficulty == 'm')
+	{
+		out << "\t  Difficulty: moderate" << endl;
+	}
+	else
+	{
+		out << "\t  Difficulty: strenous" << endl;
+	}
 
-    out << "\t  Duration: " << myHike.hikeDuration << " day(s)" << endl;
+	out << "\t  Duration: " << myHike.hikeDuration << " day(s)" << endl;
 
-    return out;
+	return out;
 }
 
 Hike::Hike(const string& newHikeLocation, const string& newHikeName,
-    int newDurationHike, char newHikeDifficulty) 
+	int newDurationHike, char newHikeDifficulty) 
 {
-    hikeLocation = newHikeLocation;
-    hikeName = newHikeName;
-    hikeDuration = newDurationHike;
-    hikeDifficulty = newHikeDifficulty;
+	hikeLocation = newHikeLocation;
+	hikeName = newHikeName;
+	hikeDuration = newDurationHike;
+	hikeDifficulty = newHikeDifficulty;
 }
 
 string Hike::getLocation() const {
-    return hikeLocation;
+	return hikeLocation;
 }
 
 int Hike::getDuration() const {
-    return hikeDuration;
+	return hikeDuration;
 }
 
 char Hike::getDifficulty() const {
-    return hikeDifficulty;
+	return hikeDifficulty;
 }
 
 string Hike::getHikeName() const {
-    return hikeName;
+	return hikeName;
 }
 
 bool Hike::operator<(const Hike& myHike) const
 {
-    return hikeLocation < myHike.hikeLocation;
+	return hikeLocation < myHike.hikeLocation;
 }
 
 Hike::~Hike() {}

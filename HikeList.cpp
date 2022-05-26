@@ -63,7 +63,7 @@ void HikeList::printByLocation(const string& hikeLocation) const
 		hikeLocation == iterByLocation->first.getLocation())
 	{
 		cout << "\n" << iterByLocation->first;
-		cout << "\t  Price: (per person): $ " << iterByLocation->second
+		cout << "\t  Price (per person): $ " << iterByLocation->second
 			<< endl ;
 		++iterByLocation;
 	}
@@ -88,7 +88,8 @@ void HikeList::printByDuration() const
 void HikeList::printByDuration(int days) const
 {
 	for (const auto& hikeIter : hikeMap)
-		if (hikeIter.first.getDuration() == days) {
+		if (hikeIter.first.getDuration() == days) 
+		{
 			cout << hikeIter.first << endl;
 		}
 }
@@ -100,8 +101,8 @@ void HikeList::printByDifficulty(char hikeDifficulty) const
 		if (hikeIter.first.getDifficulty() == hikeDifficulty)
 		{
 			cout << "\t(" << hikeDifficulty << ") " 
-				<< hikeIter.first.getHikeName() << ", "
-				<< hikeIter.first.getLocation() << endl;
+			     << hikeIter.first.getHikeName() << ", "
+			     << hikeIter.first.getLocation() << endl;
 		}
 }
 

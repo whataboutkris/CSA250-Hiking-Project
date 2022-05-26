@@ -89,8 +89,8 @@ void chooseByLocation(HikeList& myHikeList, MemberList& myMemberList,
 	cout << "\nChoose a location: ";
 	string input;
 	cin >> input;
-	cout << endl;
 	myHikeList.printByLocation(input);  
+	cout << endl;
 	askToReserve(myHikeList, myMemberList, myReservations);
 }
 
@@ -119,6 +119,7 @@ void chooseByDifficulty(HikeList& myHikeList, MemberList& myMemberList,
 	cin >> input;
 	cout << endl;
 	myHikeList.printByDifficulty(input);
+	cout << endl;
 	askToReserve(myHikeList, myMemberList, myReservations);
 }
 
@@ -131,7 +132,7 @@ void chooseByPrice(HikeList& myHikeList, MemberList& myMemberList,
 
 int askIfMember(MemberList& myMemberList) 
 {
-	cout << "\nAre you a member? (y/n) ";
+	cout << "Are you a member? (y/n) ";
 	char memberInput = ' ';
 	cin >> memberInput;
 	int idInput = 0;
@@ -211,7 +212,7 @@ void viewReservation(HikeList& myHikeList, MemberList& myMemberList,
 	cout << endl;
 	myReservations.printReservation(reservationInput, myHikeList,
 		myMemberList);
-	cout << endl;
+	cout << endl << endl;
 }
 
 void cancelReservation(HikeList& myHikeList, MemberList& myMemberList,
@@ -223,14 +224,14 @@ void cancelReservation(HikeList& myHikeList, MemberList& myMemberList,
 	cout << endl;
 	myReservations.printReservation(reservationInput, myHikeList, myMemberList);
 
-	cout << "\nAre you sure you want to cancel this reservation? (y/n) ";
+	cout << "\n\nAre you sure you want to cancel this reservation? (y/n) ";
 	char reservationInputChar = ' ';
 	cin >> reservationInputChar;
 	cout << "\n";
 	if (reservationInputChar == 'y') 
 	{
 		myReservations.cancelReservation(reservationInput);
-		cout << "\nReservation #" << reservationInput << " has been "
+		cout << "Reservation #" << reservationInput << " has been "
 			<< "cancelled.\n\n";
 	}
 }
@@ -241,8 +242,10 @@ void askToReserve(HikeList& myHikeList, MemberList& myMemberList,
 	cout << "Would you like to make a reservation? (y/n) ";
 	char reservationInput = ' ';
 	cin >> reservationInput;
+	cout << endl;
 	if (reservationInput == 'y')
 	{
+		
 		makeReservation(myHikeList, myMemberList, myReservations);
 	}
 }

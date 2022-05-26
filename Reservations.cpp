@@ -84,11 +84,11 @@ void Reservations::printReservation(int newReservationNumber,
         {
             cout << "\n\n         Discounted price using points: $ " 
                 << newHikeList.getPrice(printer->getHikeName())
-                - (newMemberList.getPoints(printer->getMembID()) / 100) << endl;
+                - (newMemberList.getPoints(printer->getMembID()) / 100);
         }
     }
     else
-        cerr << "This reservation does not exist." << endl;
+        cerr << "This reservation does not exist.";
 }
 
 Node* Reservations::findReservation(int newReservation) const
